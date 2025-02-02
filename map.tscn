@@ -1,0 +1,275 @@
+[gd_scene load_steps=21 format=3 uid="uid://cyu0ytw6wljip"]
+
+[ext_resource type="Script" path="res://Map/Regions.gd" id="1_4x2c8"]
+[ext_resource type="PackedScene" uid="uid://b6rrv46b6l0ww" path="res://Map/Region.tscn" id="2_rwqji"]
+[ext_resource type="Resource" uid="uid://b2voqs5y8runw" path="res://Countries/TheSwirlers.tres" id="3_2d1ms"]
+[ext_resource type="Shader" path="res://Region.gdshader" id="3_m8o2a"]
+[ext_resource type="Texture2D" uid="uid://4qwaqrw603p6" path="res://Assets/holylogo.svg" id="3_nqo17"]
+[ext_resource type="Resource" uid="uid://dvuvlucqarxco" path="res://Countries/HolyHolyLand.tres" id="4_6e37w"]
+[ext_resource type="Texture2D" uid="uid://bruuaxu072gfv" path="res://Assets/money.svg" id="7_4ptnx"]
+
+[sub_resource type="Shader" id="Shader_ocrb4"]
+code = "shader_type canvas_item;
+
+uniform float weight : hint_range(0.0, 1.0, 0.1);
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	COLOR.rgb *= weight;
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rvnn5"]
+shader = SubResource("Shader_ocrb4")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v1x33"]
+resource_local_to_scene = true
+shader = ExtResource("3_m8o2a")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nafsg"]
+resource_local_to_scene = true
+shader = SubResource("Shader_ocrb4")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvcas"]
+resource_local_to_scene = true
+shader = SubResource("Shader_ocrb4")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k43ic"]
+resource_local_to_scene = true
+shader = SubResource("Shader_ocrb4")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2i5ts"]
+resource_local_to_scene = true
+shader = SubResource("Shader_ocrb4")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_56f22"]
+resource_local_to_scene = true
+shader = ExtResource("3_m8o2a")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uo0v3"]
+resource_local_to_scene = true
+shader = ExtResource("3_m8o2a")
+shader_parameter/weight = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4hkhu"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_knxa5"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_g7wi8"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_doob2"]
+font_size = 24
+
+[node name="Map" type="Node2D"]
+position = Vector2(0.141388, 0.587173)
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_4x2c8")
+
+[node name="Rottensburg" parent="Node" instance=ExtResource("2_rwqji")]
+material = SubResource("ShaderMaterial_rvnn5")
+position = Vector2(0.141388, 0.587173)
+polygon = PackedVector2Array(-96.1946, -31.4102, -175.407, 97.0784, -31.2629, 120.194, -7.55794, 72.0477, -24.196, -31.8521)
+owning_country = ExtResource("3_2d1ms")
+
+[node name="Visageville" parent="Node" instance=ExtResource("2_rwqji")]
+material = SubResource("ShaderMaterial_v1x33")
+position = Vector2(0.141388, 0.587173)
+polygon = PackedVector2Array(-120.931, -151.261, -96.1946, -31.4102, -24.196, -31.8521, 15.4596, -88.0965)
+owning_country = ExtResource("4_6e37w")
+
+[node name="Realtown" parent="Node" instance=ExtResource("2_rwqji")]
+material = SubResource("ShaderMaterial_nafsg")
+position = Vector2(0.141388, 0.587173)
+polygon = PackedVector2Array(15.4596, -88.0965, 199.702, -49.2266, -7.55794, 72.0477, -24.196, -31.8521)
+owning_country = ExtResource("4_6e37w")
+
+[node name="Faketown" parent="Node" instance=ExtResource("2_rwqji")]
+material = SubResource("ShaderMaterial_uvcas")
+position = Vector2(0.141388, 0.587173)
+polygon = PackedVector2Array(199.702, -49.2266, 175.162, -137.078, 263.455, -89.6187, 287.111, -145.765, 166.868, -185.028, 15.4596, -88.0965)
+owning_country = ExtResource("4_6e37w")
+
+[node name="Villain Valley" parent="Node" instance=ExtResource("2_rwqji")]
+material = SubResource("ShaderMaterial_k43ic")
+position = Vector2(0.141388, 0.587173)
+polygon = PackedVector2Array(15.4596, -88.0965, 166.868, -185.028, 6.87052, -184.046, -25.3253, -215.849, -66.458, -188.061, -120.931, -151.261)
+owning_country = ExtResource("4_6e37w")
+
+[node name="Hobhall" parent="Node" instance=ExtResource("2_rwqji")]
+material = SubResource("ShaderMaterial_2i5ts")
+position = Vector2(0.141388, 0.587173)
+polygon = PackedVector2Array(-31.2629, 120.194, 152.734, 119.065, 232.143, 22.5756, 199.702, -49.2266, -7.55794, 72.0477)
+region_name = "Hobhall"
+owning_country = ExtResource("3_2d1ms")
+
+[node name="Brainrot Town" parent="Node" instance=ExtResource("2_rwqji")]
+material = SubResource("ShaderMaterial_56f22")
+polygon = PackedVector2Array(152.734, 119.065, 297.222, 198.179, 376.533, 85.6906, 255.799, -33.5706, 232.143, 22.5756)
+region_name = "Brainrot Town"
+owning_country = ExtResource("3_2d1ms")
+
+[node name="Valleyville" parent="Node" instance=ExtResource("2_rwqji")]
+material = SubResource("ShaderMaterial_uo0v3")
+polygon = PackedVector2Array(232.143, 22.5756, 199.702, -49.2266, 175.162, -137.078, 263.455, -89.6187, 287.111, -145.765, 375.06, -154.305, 431.108, -146.649, 415.403, -98.5515, 463.746, -42.8471, 431.845, -26.651, 440.188, 29.2988, 408.336, 53.4948, 376.091, 13.6919, 351.846, -26.16, 303.7, -49.8649, 287.749, -41.7669, 247.652, -57.5211, 255.799, -33.5706)
+owning_country = ExtResource("4_6e37w")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Empty" type="Polygon2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RegionSummary" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 0.141388
+offset_top = -39.4128
+offset_right = 40.1414
+offset_bottom = 0.587158
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/RegionSummary"]
+custom_minimum_size = Vector2(450, 200)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_right = 450.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/RegionSummary/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/RegionSummary/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/RegionSummary/PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/RegionSummary/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_nqo17")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/RegionSummary/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/RegionSummary/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Name"
+label_settings = SubResource("LabelSettings_4hkhu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/RegionSummary/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BelongsTo" type="Label" parent="CanvasLayer/RegionSummary/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Belongs to: "
+label_settings = SubResource("LabelSettings_knxa5")
+
+[node name="Country" type="Label" parent="CanvasLayer/RegionSummary/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "SigmaTown"
+label_settings = SubResource("LabelSettings_g7wi8")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 0.141388
+offset_top = 0.587173
+offset_right = 0.141357
+offset_bottom = 0.587173
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 107.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 100
+icon = ExtResource("3_nqo17")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("7_4ptnx")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "3848"
+label_settings = SubResource("LabelSettings_doob2")
+
+[node name="Popups" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,32 @@
+extends Polygon2D
+
+@export
+var neighbours : Array = [];
+@export
+var region_name : String = ""
+
+@export
+var owning_country : Country_Info
+
+var mouse_over = false;
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	get_node("BoarderLine").points = polygon
+	get_node("Region_Area").mouse_entered.connect(_on_mouse_entered)
+	get_node("Region_Area").mouse_exited.connect(_on_mouse_exited)
+	pass # Replace with function body.
+
+func _on_mouse_entered():
+	mouse_over = true
+	get_parent().hoverdict[self] = true
+	pass
+
+func _on_mouse_exited():
+	mouse_over = false
+	get_parent().hoverdict[self] = false
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	color = owning_country.color
+	pass

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Country_Info" load_steps=3 format=3 uid="uid://dvuvlucqarxco"]
+
+[ext_resource type="Texture2D" uid="uid://4qwaqrw603p6" path="res://Assets/holylogo.svg" id="1_1off6"]
+[ext_resource type="Script" path="res://Data/CountryInfo.gd" id="2_88y81"]
+
+[resource]
+script = ExtResource("2_88y81")
+name = "Holy HolyLand"
+logo = ExtResource("1_1off6")
+color = Color(0.870588, 0.721569, 0.305882, 1)

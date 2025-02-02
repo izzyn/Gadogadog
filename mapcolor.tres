@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cffyn7pobgxrb"]
+
+[ext_resource type="Shader" path="res://overlay.gdshader" id="1_rrc1i"]
+
+[resource]
+shader = ExtResource("1_rrc1i")
+shader_parameter/colour = Color(0.591462, 0.414386, 0.348323, 1)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1bne15nfycuf"]
+
+[ext_resource type="Script" path="res://Data/CountryData.gd" id="1_p7lka"]
+[ext_resource type="Script" path="res://Data/CountryInfo.gd" id="2_bgg82"]
+[ext_resource type="Resource" uid="uid://dvuvlucqarxco" path="res://Countries/HolyHolyLand.tres" id="3_2h0hf"]
+[ext_resource type="Resource" uid="uid://b2voqs5y8runw" path="res://Countries/TheSwirlers.tres" id="4_7g5jj"]
+
+[node name="CountryData" type="Node"]
+script = ExtResource("1_p7lka")
+countries = Array[ExtResource("2_bgg82")]([ExtResource("3_2h0hf"), ExtResource("4_7g5jj")])

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6rrv46b6l0ww"]
+
+[ext_resource type="Script" path="res://Map/Region.gd" id="1_8b6sy"]
+[ext_resource type="Shader" path="res://Region.gdshader" id="1_8snm7"]
+[ext_resource type="Script" path="res://Map/regionarea.gd" id="2_y5s2v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oth55"]
+resource_local_to_scene = true
+shader = ExtResource("1_8snm7")
+shader_parameter/weight = 1.0
+
+[node name="Region" type="Polygon2D"]
+material = SubResource("ShaderMaterial_oth55")
+rotation = 0.00613769
+script = ExtResource("1_8b6sy")
+
+[node name="Region_Area" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Region_Area"]
+script = ExtResource("2_y5s2v")
+
+[node name="BoarderLine" type="Line2D" parent="."]
+closed = true
+width = 4.0
+default_color = Color(0, 0, 0, 1)

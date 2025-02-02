@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Country_Info" load_steps=3 format=3 uid="uid://b2voqs5y8runw"]
+
+[ext_resource type="Texture2D" uid="uid://125hf01me7lv" path="res://Assets/swirlylogo.svg" id="1_ax4ph"]
+[ext_resource type="Script" path="res://Data/CountryInfo.gd" id="2_loxm4"]
+
+[resource]
+script = ExtResource("2_loxm4")
+name = "The Swirlers"
+logo = ExtResource("1_ax4ph")
+color = Color(0.784314, 0.215686, 0.215686, 1)
