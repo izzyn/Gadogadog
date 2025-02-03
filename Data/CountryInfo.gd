@@ -8,3 +8,6 @@ var logo : Texture
 
 @export
 var color : Color
+
+@export
+var resources : Array[Resource_Type]

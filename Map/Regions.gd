@@ -50,3 +50,7 @@ func _process(delta: float) -> void:
 		for i in get_children():
 			i.material.set("shader_parameter/weight", 1.0)
 	pass
+
+
+func mouse_exited() -> void:
+	pass # Replace with function body.

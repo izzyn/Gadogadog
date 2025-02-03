@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ch6gh37xfxvph" path="res://UI/eventpopup.tscn" id="2_df3g4"]
 [ext_resource type="PackedScene" uid="uid://c1in754oo15pw" path="res://UI/InfoWindow.tscn" id="3_4vw6a"]
 
-[node name="UiManager" type="Node"]
+[node name="UiManager" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_mh30e")
 
 [node name="PanelContainer" parent="." instance=ExtResource("2_df3g4")]
@@ -14,3 +15,4 @@ offset_bottom = 693.0
 
 [node name="InfoWindow" parent="." instance=ExtResource("3_4vw6a")]
 visible = false
+top_level = true

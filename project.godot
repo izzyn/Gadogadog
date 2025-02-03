@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 UiManager="*res://UI/UIManager.tscn"
+CountryData="*res://Data/CountryData.tscn"
 
 [editor_plugins]
 

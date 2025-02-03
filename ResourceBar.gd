@@ -1,12 +1,9 @@
-extends Node
+extends HBoxContainer
 
-@export
-var player_country_idx : int
 
-@export
-var countries : Array[Country_Info]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_node("MoneyUI").set_resource(CountryData.countries[CountryData.player_country_idx].resources[0])
 	pass # Replace with function body.
 
 
