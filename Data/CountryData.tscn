@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1bne15nfycuf"]
-
-[ext_resource type="Script" path="res://Data/CountryData.gd" id="1_p7lka"]
-
-[node name="CountryData" type="Node"]
-script = ExtResource("1_p7lka")
-player_country_id = "holyland"

@@ -12,5 +12,6 @@ func revoke():
 	print("Not Implemented")
 	pass
 
-func get_tooltip():
+func get_tooltip() -> String:
+	return ""
 	pass

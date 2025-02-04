@@ -7,7 +7,9 @@ var completed_events : Dictionary
 func _ready() -> void:
 	pass # Replace with function body.
 
-func append_log(event : Event) -> void:
+func append_log(event : Log_Entry) -> void:
+	event.enact()
+	log.append(event)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
