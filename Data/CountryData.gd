@@ -1,10 +1,10 @@
 extends Node
 
 @export
-var player_country_idx : int
+var player_country_id : String
 
 @export
-var countries : Array[Country_Info]
+var countries : Dictionary
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

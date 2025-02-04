@@ -194,7 +194,7 @@ label_settings = SubResource("LabelSettings_knxa5")
 
 [node name="Country" type="Label" parent="CanvasLayer/RegionSummary/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "SigmaTown"
+text = "Some Cool Guy"
 label_settings = SubResource("LabelSettings_g7wi8")
 
 [node name="Control" type="Control" parent="CanvasLayer"]

@@ -3,7 +3,7 @@ extends HBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_node("MoneyUI").set_resource(CountryData.countries[CountryData.player_country_idx].resources[0])
+	get_node("MoneyUI").set_resource(CountryData.countries[CountryData.player_country_id].resources["money"])
 	pass # Replace with function body.
 
 

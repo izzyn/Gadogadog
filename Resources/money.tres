@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Resource_Type" load_steps=3 format=3 uid="uid://ikqr8q6wqhvp"]
+
+[ext_resource type="Script" path="res://Data/ResourceType.gd" id="1_dhnej"]
+[ext_resource type="Texture2D" uid="uid://bruuaxu072gfv" path="res://Assets/money.svg" id="1_s78gy"]
+
+[resource]
+script = ExtResource("1_dhnej")
+icon = ExtResource("1_s78gy")
+amount = 0
+income = {}
