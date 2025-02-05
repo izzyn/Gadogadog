@@ -10,7 +10,7 @@ var always_visible : bool
 var condition : Condition
 
 @export
-var entry : Log_Entry
+var entries : Array[Log_Entry]
 
 @export
 var text : String

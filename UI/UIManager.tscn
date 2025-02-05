@@ -8,7 +8,7 @@
 layer = 10
 script = ExtResource("1_mh30e")
 
-[node name="PanelContainer" parent="." instance=ExtResource("2_df3g4")]
+[node name="EventPopup" parent="." instance=ExtResource("2_df3g4")]
 visible = false
 offset_right = 800.0
 offset_bottom = 693.0

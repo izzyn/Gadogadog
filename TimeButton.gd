@@ -1,14 +1,22 @@
-extends HBoxContainer
+extends Button
 
-
+var speed = 1
+@export
+var max_speed = 5
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	update_bar()
 	pass # Replace with function body.
 
-func update_bar():
-	get_node("MoneyUI").set_resource(CountryData.countries[CountryData.player_country_id].resources["money"])
-	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_pressed() -> void:
+	speed += 1
+	speed = speed % max_speed
+	TimeManager.speed = speed
+	text = str(speed)
+	TimeManager.restart_timer()
+	pass # Replace with function body.

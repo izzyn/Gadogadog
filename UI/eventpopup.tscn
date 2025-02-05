@@ -7,7 +7,8 @@
 bg_color = Color(0, 0, 0, 1)
 
 [node name="PanelContainer" type="PanelContainer"]
-custom_minimum_size = Vector2(800, 400)
+z_index = -1
+custom_minimum_size = Vector2(800, 200)
 offset_right = 512.0
 offset_bottom = 434.0
 size_flags_horizontal = 0
@@ -54,13 +55,5 @@ layout_mode = 2
 [node name="Label2" type="Label" parent="VBoxContainer2/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "This Event is like whennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn the diddler appears (smiling imp emoji)"
+text = "You should not be seeing this text :("
 autowrap_mode = 1
-
-[node name="Button" type="Button" parent="VBoxContainer2/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Option 2"
-
-[node name="Button2" type="Button" parent="VBoxContainer2/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Option 1"

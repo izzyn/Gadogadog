@@ -1,0 +1,71 @@
+[gd_scene load_steps=20 format=3 uid="uid://cv4r78mnn162u"]
+
+[ext_resource type="Script" path="res://Data/Log/Log.gd" id="1_6aln7"]
+[ext_resource type="Script" path="res://Data/Events/PopupData.gd" id="2_87bku"]
+[ext_resource type="Texture2D" uid="uid://dtut83he6mu7b" path="res://Assets/YW025183V_A-volcano-Mount-Etna-erupting-at-night.jpg" id="3_h5d1i"]
+[ext_resource type="Script" path="res://Data/Events/PopupOption.gd" id="3_msoth"]
+[ext_resource type="Script" path="res://Data/Log/Transaction.gd" id="5_faqla"]
+[ext_resource type="Script" path="res://Data/Log/LogEntry.gd" id="5_jd50d"]
+[ext_resource type="Script" path="res://Data/FetchData/CountryResource.gd" id="6_6srmp"]
+[ext_resource type="Script" path="res://Data/Conditions/ConditionResource.gd" id="6_qv0xi"]
+[ext_resource type="Script" path="res://Data/Log/Event.gd" id="7_gjxs3"]
+[ext_resource type="Script" path="res://Data/FetchData/Constant.gd" id="7_i6r8a"]
+
+[sub_resource type="Resource" id="Resource_6ihcb"]
+script = ExtResource("5_faqla")
+resource_type = "money"
+amount = 100
+affected_country = "holyland"
+
+[sub_resource type="Resource" id="Resource_psl06"]
+script = ExtResource("7_gjxs3")
+ID = "sadkids"
+event_name = "Sad Children"
+affected_country = "holyland"
+
+[sub_resource type="Resource" id="Resource_j5lqq"]
+script = ExtResource("3_msoth")
+always_visible = false
+entries = Array[ExtResource("5_jd50d")]([SubResource("Resource_6ihcb"), SubResource("Resource_psl06")])
+text = "Children who want to go back to the mines says what?"
+
+[sub_resource type="Resource" id="Resource_20cip"]
+script = ExtResource("6_6srmp")
+country_id = "holyland"
+country_resource_id = "money"
+
+[sub_resource type="Resource" id="Resource_kp530"]
+script = ExtResource("7_i6r8a")
+Value = 2000
+
+[sub_resource type="Resource" id="Resource_66d6k"]
+script = ExtResource("6_qv0xi")
+type = 0
+resource_1 = SubResource("Resource_20cip")
+resource_2 = SubResource("Resource_kp530")
+display = false
+
+[sub_resource type="Resource" id="Resource_ypitx"]
+script = ExtResource("5_faqla")
+resource_type = "money"
+amount = -250
+affected_country = "holyland"
+
+[sub_resource type="Resource" id="Resource_6xrmt"]
+script = ExtResource("3_msoth")
+always_visible = false
+condition = SubResource("Resource_66d6k")
+entries = Array[ExtResource("5_jd50d")]([SubResource("Resource_ypitx")])
+text = "Be kind to the children :("
+
+[sub_resource type="Resource" id="Resource_q3k4o"]
+script = ExtResource("2_87bku")
+ID = "hello"
+title = "Crybabies in country"
+image = ExtResource("3_h5d1i")
+flavour_text = "The children don't want to work"
+options = Array[ExtResource("3_msoth")]([SubResource("Resource_j5lqq"), SubResource("Resource_6xrmt")])
+
+[node name="Log" type="Node"]
+script = ExtResource("1_6aln7")
+possible_events = Array[ExtResource("2_87bku")]([SubResource("Resource_q3k4o")])

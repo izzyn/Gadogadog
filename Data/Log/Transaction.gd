@@ -17,7 +17,11 @@ func revoke():
 
 func get_tooltip():
 	var adjective = "gains "
+	var amountstr = str(amount)
 	if amount < 0:
-		adjective = "[color=red]loses[/color] "
-	return CountryData.countries[affected_country].name + " " + adjective + ("[img 20]%s[/img] " % CountryData.countries[affected_country].resources[resource_type].icon) + str(amount)
+		amountstr = "[color=red]" + amountstr.replace('-', '') + "[/color]"
+		adjective = "loses "
+	else:
+		amountstr = "[color=green]" + amountstr + "[/color]"
+	return CountryData.countries[affected_country].name + " " + adjective + ("[img=20]%s[/img]" % CountryData.countries[affected_country].resources[resource_type].icon.resource_path) + amountstr
 	pass

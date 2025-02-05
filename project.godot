@@ -19,7 +19,8 @@ config/icon="res://icon.svg"
 
 UiManager="*res://UI/UIManager.tscn"
 CountryData="*res://Data/Countries/CountryData.tscn"
-Log="*res://Data/Log/Log.gd"
+Log="*res://Data/Log/Log.tscn"
+TimeManager="*res://Data/TimeManager.tscn"
 
 [editor_plugins]
 
