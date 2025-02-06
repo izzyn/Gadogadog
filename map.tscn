@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cyu0ytw6wljip"]
+[gd_scene load_steps=23 format=3 uid="uid://cyu0ytw6wljip"]
 
 [ext_resource type="Script" path="res://Map/Regions.gd" id="1_4x2c8"]
 [ext_resource type="PackedScene" uid="uid://b6rrv46b6l0ww" path="res://Map/Region.tscn" id="2_rwqji"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://ResourceBar.gd" id="7_gx6ao"]
 [ext_resource type="PackedScene" uid="uid://dwe6opvhx2u8c" path="res://resource_ui.tscn" id="7_u6jg7"]
 [ext_resource type="Script" path="res://TimeButton.gd" id="9_4s4di"]
+[ext_resource type="Script" path="res://time_display.gd" id="10_m3jtr"]
 
 [sub_resource type="Shader" id="Shader_ocrb4"]
 code = "shader_type canvas_item;
@@ -260,6 +261,7 @@ layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 alignment = 2
 
 [node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer2"]
@@ -270,6 +272,7 @@ script = ExtResource("9_4s4di")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer2"]
 layout_mode = 2
+script = ExtResource("10_m3jtr")
 
 [node name="Popups" type="Control" parent="CanvasLayer"]
 layout_mode = 3

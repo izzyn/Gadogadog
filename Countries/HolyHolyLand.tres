@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Country_Info" load_steps=6 format=3 uid="uid://dvuvlucqarxco"]
+[gd_resource type="Resource" script_class="Country_Info" load_steps=7 format=3 uid="uid://dvuvlucqarxco"]
 
 [ext_resource type="Texture2D" uid="uid://4qwaqrw603p6" path="res://Assets/holylogo.svg" id="1_1off6"]
+[ext_resource type="Script" path="res://Data/Events/PopupData.gd" id="1_fiufx"]
 [ext_resource type="Script" path="res://Data/Countries/CountryInfo.gd" id="2_88y81"]
 [ext_resource type="Script" path="res://Data/ResourceType.gd" id="2_gydni"]
 [ext_resource type="Texture2D" uid="uid://bruuaxu072gfv" path="res://Assets/money.svg" id="3_yrtmj"]
@@ -19,4 +20,5 @@ script = ExtResource("2_88y81")
 name = "Holy HolyLand"
 logo = ExtResource("1_1off6")
 color = Color(0.870588, 0.721569, 0.305882, 1)
+events = Array[ExtResource("1_fiufx")]([])
 resources = Array[ExtResource("2_gydni")]([SubResource("Resource_dxvya")])

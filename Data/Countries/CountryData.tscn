@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1bne15nfycuf"]
+[gd_scene load_steps=13 format=3 uid="uid://d1bne15nfycuf"]
 
 [ext_resource type="Script" path="res://Data/Countries/CountryData.gd" id="1_p7lka"]
 [ext_resource type="Texture2D" uid="uid://4qwaqrw603p6" path="res://Assets/holylogo.svg" id="2_3hfo0"]
+[ext_resource type="Script" path="res://Data/Events/PopupData.gd" id="2_468r7"]
 [ext_resource type="Texture2D" uid="uid://bruuaxu072gfv" path="res://Assets/money.svg" id="3_enl0f"]
 [ext_resource type="Script" path="res://Data/ResourceType.gd" id="4_dqgkg"]
 [ext_resource type="Script" path="res://Data/Countries/CountryInfo.gd" id="5_xl1gb"]
@@ -19,6 +20,7 @@ script = ExtResource("5_xl1gb")
 name = "Holy holyland"
 logo = ExtResource("2_3hfo0")
 color = Color(0, 0, 0, 1)
+events = Array[ExtResource("2_468r7")]([])
 resources = {
 "money": SubResource("Resource_bgnjg")
 }
@@ -42,6 +44,7 @@ income = {}
 script = ExtResource("5_xl1gb")
 name = "world"
 color = Color(0, 0, 0, 1)
+events = Array[ExtResource("2_468r7")]([])
 resources = {
 "day": SubResource("Resource_o8t0k"),
 "month": SubResource("Resource_y7n8w"),

@@ -11,11 +11,11 @@ func set_resource(_resource : Resource_Type):
 	get_node("Label").text = str(resource.amount) + " (" + resource.display_income() + ")"
 	pass
 func mouse_entered():
-	get_tree().root.get_node("UiManager").create_tooltip(resource.income_tooltip())
+	UiManager.create_tooltip(resource.income_tooltip())
 	pass
 
 func mouse_exited():
-	get_tree().root.get_node("UiManager").hide_tooltip()
+	UiManager.hide_tooltip()
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

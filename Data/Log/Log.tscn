@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cv4r78mnn162u"]
+[gd_scene load_steps=19 format=3 uid="uid://cv4r78mnn162u"]
 
 [ext_resource type="Script" path="res://Data/Log/Log.gd" id="1_6aln7"]
 [ext_resource type="Script" path="res://Data/Events/PopupData.gd" id="2_87bku"]
@@ -45,17 +45,11 @@ resource_1 = SubResource("Resource_20cip")
 resource_2 = SubResource("Resource_kp530")
 display = false
 
-[sub_resource type="Resource" id="Resource_ypitx"]
-script = ExtResource("5_faqla")
-resource_type = "money"
-amount = -250
-affected_country = "holyland"
-
 [sub_resource type="Resource" id="Resource_6xrmt"]
 script = ExtResource("3_msoth")
 always_visible = false
 condition = SubResource("Resource_66d6k")
-entries = Array[ExtResource("5_jd50d")]([SubResource("Resource_ypitx")])
+entries = Array[ExtResource("5_jd50d")]([])
 text = "Be kind to the children :("
 
 [sub_resource type="Resource" id="Resource_q3k4o"]
@@ -64,6 +58,7 @@ ID = "hello"
 title = "Crybabies in country"
 image = ExtResource("3_h5d1i")
 flavour_text = "The children don't want to work"
+global = false
 options = Array[ExtResource("3_msoth")]([SubResource("Resource_j5lqq"), SubResource("Resource_6xrmt")])
 
 [node name="Log" type="Node"]

@@ -4,9 +4,9 @@ var entries : Array[Log_Entry]
 var tooltip : String
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	connect("mouse_entered", _mouse_entered)
-	connect("mouse_exited", _mouse_exited)
-
+	if tooltip != "":
+		connect("mouse_entered", _mouse_entered)
+		connect("mouse_exited", _mouse_exited)
 	pass # Replace with function body.
 
 func _pressed() -> void:
