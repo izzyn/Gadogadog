@@ -12,6 +12,9 @@ var month_days = [31,28,31,30,31,30,31,31,30,31,30,31]
 @export
 var start_day : int 
 
+@export
+var update_country : String
+
 var current_day : int 
 signal time_updated(day)
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +22,9 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func append_log(event : Log_Entry) -> void:
+	if event.affected_country == "current":
+		event.affected_country = CountryData.player_country_id
+		
 	event.enact()
 	log.append(event)
 	get_tree().root.get_node("Map/CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer").update_bar()
@@ -28,6 +34,9 @@ func update_time():
 	var timelog = Update_Day_Log.new()
 	append_log(timelog)
 	for i in CountryData.countries:
+		if i == "current": continue
+		if i == "update": continue
+		
 		var newlog = Time_Update_Log.new()
 		newlog.affected_country = i
 		newlog.day = current_day

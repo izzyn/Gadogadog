@@ -10,8 +10,6 @@ var logo : Texture
 @export
 var color : Color
 
-@export
-var events : Array[Popup_Data]
 ##resources, is a dictionary of type Key: String -> Value: Resource_Type
 @export
 var resources : Dictionary = {

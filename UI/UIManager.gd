@@ -3,7 +3,6 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	create_popup(Log.possible_events[0])
 	pass # Replace with function body.
 
 func create_popup(data : Popup_Data):
@@ -18,9 +17,13 @@ func create_popup(data : Popup_Data):
 			var button = preload("res://UI/PopupButton.tscn").instantiate()
 			button.text = i.text
 			var entries = i.entries.duplicate(true)
+			
 			if data.always_trigger_events:
-				entries.append_array(data.always_trigger_events)
+				var always_trigger = data.always_trigger_events.duplicate(true)
+				entries.append_array(always_trigger)
 			for j in entries:
+				if j.affected_country == "update":
+					j.affected_country = Log.update_country
 				button.tooltip += j.get_tooltip() + "\n"
 			if i.auto_select_after != -1:
 				button.auto_select_after = i.auto_select_after

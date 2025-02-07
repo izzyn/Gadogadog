@@ -42,9 +42,9 @@ func _process(delta: float) -> void:
 			hovered = true
 			summary.visible = true
 			placename.text = i.name
-			countryname.text = i.owning_country.name
-			countrytexture.texture = i.owning_country.logo
-			countryname.label_settings.font_color = i.owning_country.color
+			countryname.text = CountryData.countries[i.owning_country].name
+			countrytexture.texture = CountryData.countries[i.owning_country].logo
+			countryname.label_settings.font_color = CountryData.countries[i.owning_country].color
 	if !hovered:
 		summary.visible = false
 		for i in get_children():

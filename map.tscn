@@ -1,12 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://cyu0ytw6wljip"]
+[gd_scene load_steps=22 format=3 uid="uid://cyu0ytw6wljip"]
 
 [ext_resource type="Script" path="res://Map/Regions.gd" id="1_4x2c8"]
 [ext_resource type="PackedScene" uid="uid://b6rrv46b6l0ww" path="res://Map/Region.tscn" id="2_rwqji"]
-[ext_resource type="Resource" uid="uid://b2voqs5y8runw" path="res://Countries/TheSwirlers.tres" id="3_2d1ms"]
 [ext_resource type="Shader" path="res://Region.gdshader" id="3_m8o2a"]
 [ext_resource type="Texture2D" uid="uid://4qwaqrw603p6" path="res://Assets/holylogo.svg" id="3_nqo17"]
-[ext_resource type="Resource" uid="uid://dvuvlucqarxco" path="res://Countries/HolyHolyLand.tres" id="4_6e37w"]
 [ext_resource type="Script" path="res://ResourceBar.gd" id="7_gx6ao"]
+[ext_resource type="Script" path="res://CountryButton.gd" id="7_s7u3g"]
 [ext_resource type="PackedScene" uid="uid://dwe6opvhx2u8c" path="res://resource_ui.tscn" id="7_u6jg7"]
 [ext_resource type="Script" path="res://TimeButton.gd" id="9_4s4di"]
 [ext_resource type="Script" path="res://time_display.gd" id="10_m3jtr"]
@@ -89,49 +88,49 @@ script = ExtResource("1_4x2c8")
 material = SubResource("ShaderMaterial_rvnn5")
 position = Vector2(0.141388, 0.587173)
 polygon = PackedVector2Array(-96.1946, -31.4102, -175.407, 97.0784, -31.2629, 120.194, -7.55794, 72.0477, -24.196, -31.8521)
-owning_country = ExtResource("3_2d1ms")
+owning_country = "swirlers"
 
 [node name="Visageville" parent="Node" instance=ExtResource("2_rwqji")]
 material = SubResource("ShaderMaterial_v1x33")
 position = Vector2(0.141388, 0.587173)
 polygon = PackedVector2Array(-120.931, -151.261, -96.1946, -31.4102, -24.196, -31.8521, 15.4596, -88.0965)
-owning_country = ExtResource("4_6e37w")
+owning_country = "holyland"
 
 [node name="Realtown" parent="Node" instance=ExtResource("2_rwqji")]
 material = SubResource("ShaderMaterial_nafsg")
 position = Vector2(0.141388, 0.587173)
 polygon = PackedVector2Array(15.4596, -88.0965, 199.702, -49.2266, -7.55794, 72.0477, -24.196, -31.8521)
-owning_country = ExtResource("4_6e37w")
+owning_country = "holyland"
 
 [node name="Faketown" parent="Node" instance=ExtResource("2_rwqji")]
 material = SubResource("ShaderMaterial_uvcas")
 position = Vector2(0.141388, 0.587173)
 polygon = PackedVector2Array(199.702, -49.2266, 175.162, -137.078, 263.455, -89.6187, 287.111, -145.765, 166.868, -185.028, 15.4596, -88.0965)
-owning_country = ExtResource("4_6e37w")
+owning_country = "holyland"
 
 [node name="Villain Valley" parent="Node" instance=ExtResource("2_rwqji")]
 material = SubResource("ShaderMaterial_k43ic")
 position = Vector2(0.141388, 0.587173)
 polygon = PackedVector2Array(15.4596, -88.0965, 166.868, -185.028, 6.87052, -184.046, -25.3253, -215.849, -66.458, -188.061, -120.931, -151.261)
-owning_country = ExtResource("4_6e37w")
+owning_country = "holyland"
 
 [node name="Hobhall" parent="Node" instance=ExtResource("2_rwqji")]
 material = SubResource("ShaderMaterial_2i5ts")
 position = Vector2(0.141388, 0.587173)
 polygon = PackedVector2Array(-31.2629, 120.194, 152.734, 119.065, 232.143, 22.5756, 199.702, -49.2266, -7.55794, 72.0477)
 region_name = "Hobhall"
-owning_country = ExtResource("3_2d1ms")
+owning_country = "swirlers"
 
 [node name="Brainrot Town" parent="Node" instance=ExtResource("2_rwqji")]
 material = SubResource("ShaderMaterial_56f22")
 polygon = PackedVector2Array(152.734, 119.065, 297.222, 198.179, 376.533, 85.6906, 255.799, -33.5706, 232.143, 22.5756)
 region_name = "Brainrot Town"
-owning_country = ExtResource("3_2d1ms")
+owning_country = "swirlers"
 
 [node name="Valleyville" parent="Node" instance=ExtResource("2_rwqji")]
 material = SubResource("ShaderMaterial_uo0v3")
 polygon = PackedVector2Array(232.143, 22.5756, 199.702, -49.2266, 175.162, -137.078, 263.455, -89.6187, 287.111, -145.765, 375.06, -154.305, 431.108, -146.649, 415.403, -98.5515, 463.746, -42.8471, 431.845, -26.651, 440.188, 29.2988, 408.336, 53.4948, 376.091, 13.6919, 351.846, -26.16, 303.7, -49.8649, 287.749, -41.7669, 247.652, -57.5211, 255.799, -33.5706)
-owning_country = ExtResource("4_6e37w")
+owning_country = "holyland"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -230,6 +229,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/icon_max_width = 100
 icon = ExtResource("3_nqo17")
+script = ExtResource("7_s7u3g")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/HBoxContainer2"]
 layout_mode = 2

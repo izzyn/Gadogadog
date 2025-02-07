@@ -6,7 +6,7 @@ var neighbours : Array = [];
 var region_name : String = ""
 
 @export
-var owning_country : Country_Info
+var owning_country : String
 
 var mouse_over = false;
 # Called when the node enters the scene tree for the first time.
@@ -28,5 +28,5 @@ func _on_mouse_exited():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	color = owning_country.color
+	color = CountryData.countries[owning_country].color
 	pass

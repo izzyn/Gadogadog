@@ -16,10 +16,16 @@ var eventid : String
 var inverted : bool
 
 func check() -> bool:
+	var country_check = countryid
+	if countryid == "update":
+		country_check = Log.update_country
+	if countryid == "current":
+		country_check = CountryData.player_country_id
+
 	if Log.completed_events.has(eventid):
 		if global:
 			return not inverted
-		else: if countryid in Log.completed_events[eventid]:
+		else: if country_check in Log.completed_events[eventid]:
 			return not inverted
 	return inverted
 	pass

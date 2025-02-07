@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cv4r78mnn162u"]
+[gd_scene load_steps=44 format=3 uid="uid://cv4r78mnn162u"]
 
 [ext_resource type="Script" path="res://Data/Log/Log.gd" id="1_6aln7"]
 [ext_resource type="Script" path="res://Data/Events/PopupData.gd" id="2_87bku"]
@@ -11,41 +11,49 @@
 [ext_resource type="Script" path="res://Data/Conditions/ConditionResource.gd" id="6_qv0xi"]
 [ext_resource type="Script" path="res://Data/Log/Event.gd" id="7_gjxs3"]
 [ext_resource type="Script" path="res://Data/FetchData/Constant.gd" id="7_i6r8a"]
+[ext_resource type="Script" path="res://Data/Conditions/Condition.gd" id="12_b2vjt"]
+[ext_resource type="Script" path="res://Data/Conditions/ConditionRandom.gd" id="13_4pgd2"]
+[ext_resource type="Script" path="res://Data/Conditions/ConditionTime.gd" id="14_nt3q6"]
+[ext_resource type="Script" path="res://Data/Conditions/ConditionAll.gd" id="15_6jepd"]
+[ext_resource type="Script" path="res://Data/Conditions/ConditionCountry.gd" id="15_wma1i"]
+[ext_resource type="Texture2D" uid="uid://dctb6ccop2kca" path="res://Assets/pexels-photo-3363426.jpeg" id="16_rvfsr"]
+[ext_resource type="Script" path="res://Data/Conditions/ConditionEvent.gd" id="17_tl0vm"]
+[ext_resource type="Texture2D" uid="uid://l80bv6uiigpr" path="res://Assets/entrepreneur-computer-man-office-preview.jpg" id="18_mmfxv"]
 
 [sub_resource type="Resource" id="Resource_djh8p"]
 script = ExtResource("5_faqla")
 resource_type = "money"
 amount = -100
-affected_country = "holyland"
+affected_country = "current"
 
 [sub_resource type="Resource" id="Resource_j6d0x"]
 script = ExtResource("4_rsavp")
 duration = 5
 event = SubResource("Resource_djh8p")
-affected_country = "holyland"
-
-[sub_resource type="Resource" id="Resource_6ihcb"]
-script = ExtResource("5_faqla")
-resource_type = "money"
-amount = 100
-affected_country = "holyland"
+affected_country = "current"
 
 [sub_resource type="Resource" id="Resource_psl06"]
 script = ExtResource("7_gjxs3")
 ID = "sadkids"
 event_name = "Sad Children"
-affected_country = "holyland"
+affected_country = "update"
+
+[sub_resource type="Resource" id="Resource_mau0v"]
+script = ExtResource("5_faqla")
+resource_type = "money"
+amount = 100
+affected_country = "update"
 
 [sub_resource type="Resource" id="Resource_j5lqq"]
 script = ExtResource("3_msoth")
 always_visible = false
-entries = Array[ExtResource("5_jd50d")]([SubResource("Resource_6ihcb"), SubResource("Resource_psl06")])
+entries = Array[ExtResource("5_jd50d")]([SubResource("Resource_psl06"), SubResource("Resource_mau0v")])
 text = "Children who want to go back to the mines says what?"
 auto_select_after = 10
 
 [sub_resource type="Resource" id="Resource_20cip"]
 script = ExtResource("6_6srmp")
-country_id = "holyland"
+country_id = "update"
 country_resource_id = "money"
 
 [sub_resource type="Resource" id="Resource_kp530"]
@@ -75,9 +83,111 @@ image = ExtResource("3_h5d1i")
 flavour_text = "The children don't want to work"
 always_trigger_events = Array[ExtResource("5_jd50d")]([SubResource("Resource_j6d0x")])
 global = false
-appears_once = false
+appears_once = true
 options = Array[ExtResource("3_msoth")]([SubResource("Resource_j5lqq"), SubResource("Resource_6xrmt")])
+
+[sub_resource type="Resource" id="Resource_mtjbg"]
+script = ExtResource("13_4pgd2")
+chance = 0.5
+display = false
+
+[sub_resource type="Resource" id="Resource_ysqn5"]
+script = ExtResource("14_nt3q6")
+type = 1
+length = 1
+display = false
+
+[sub_resource type="Resource" id="Resource_w3o8h"]
+script = ExtResource("15_wma1i")
+country_id = "holyland"
+display = false
+
+[sub_resource type="Resource" id="Resource_tsmt8"]
+script = ExtResource("15_6jepd")
+conditions = Array[ExtResource("12_b2vjt")]([SubResource("Resource_mtjbg"), SubResource("Resource_ysqn5"), SubResource("Resource_w3o8h")])
+display = false
+
+[sub_resource type="Resource" id="Resource_4xvna"]
+script = ExtResource("3_msoth")
+always_visible = true
+entries = Array[ExtResource("5_jd50d")]([])
+text = "Ok"
+auto_select_after = -1
+
+[sub_resource type="Resource" id="Resource_o7x5u"]
+script = ExtResource("17_tl0vm")
+global = false
+countryid = ""
+eventid = "sadkids"
+inverted = false
+display = false
+
+[sub_resource type="Resource" id="Resource_acyxu"]
+script = ExtResource("3_msoth")
+always_visible = false
+condition = SubResource("Resource_o7x5u")
+entries = Array[ExtResource("5_jd50d")]([])
+text = "The mining kids are symbols"
+auto_select_after = -1
+
+[sub_resource type="Resource" id="Resource_sybl5"]
+script = ExtResource("2_87bku")
+ID = "holyevent"
+title = "The once per month holy event is happening"
+image = ExtResource("16_rvfsr")
+flavour_text = "YOU WONT BELIEVE wHAT I FOUND DURING THE HOLY EVENT??"
+always_trigger_events = Array[ExtResource("5_jd50d")]([])
+global = false
+appears_once = false
+condition = SubResource("Resource_tsmt8")
+options = Array[ExtResource("3_msoth")]([SubResource("Resource_4xvna"), SubResource("Resource_acyxu")])
+
+[sub_resource type="Resource" id="Resource_tr483"]
+script = ExtResource("7_gjxs3")
+ID = "steve"
+event_name = "Steve"
+affected_country = "current"
+
+[sub_resource type="Resource" id="Resource_ffooe"]
+script = ExtResource("17_tl0vm")
+global = false
+countryid = "update"
+eventid = "sadkids"
+inverted = false
+display = false
+
+[sub_resource type="Resource" id="Resource_hep1g"]
+script = ExtResource("17_tl0vm")
+global = false
+countryid = "update"
+eventid = "steve"
+inverted = true
+display = false
+
+[sub_resource type="Resource" id="Resource_q5j1k"]
+script = ExtResource("15_6jepd")
+conditions = Array[ExtResource("12_b2vjt")]([SubResource("Resource_ffooe"), SubResource("Resource_hep1g")])
+display = false
+
+[sub_resource type="Resource" id="Resource_masdy"]
+script = ExtResource("3_msoth")
+always_visible = false
+entries = Array[ExtResource("5_jd50d")]([])
+text = "Weird."
+auto_select_after = -1
+
+[sub_resource type="Resource" id="Resource_hrobc"]
+script = ExtResource("2_87bku")
+ID = "steve"
+title = "The Children Have turned into Steve"
+image = ExtResource("18_mmfxv")
+flavour_text = "After working in the mines, all children returned as steve from accounting"
+always_trigger_events = Array[ExtResource("5_jd50d")]([SubResource("Resource_tr483")])
+global = false
+appears_once = true
+condition = SubResource("Resource_q5j1k")
+options = Array[ExtResource("3_msoth")]([SubResource("Resource_masdy")])
 
 [node name="Log" type="Node"]
 script = ExtResource("1_6aln7")
-possible_events = Array[ExtResource("2_87bku")]([SubResource("Resource_q3k4o")])
+possible_events = Array[ExtResource("2_87bku")]([SubResource("Resource_q3k4o"), SubResource("Resource_sybl5"), SubResource("Resource_hrobc")])
