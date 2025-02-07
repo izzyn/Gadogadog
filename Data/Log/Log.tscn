@@ -1,15 +1,28 @@
-[gd_scene load_steps=19 format=3 uid="uid://cv4r78mnn162u"]
+[gd_scene load_steps=22 format=3 uid="uid://cv4r78mnn162u"]
 
 [ext_resource type="Script" path="res://Data/Log/Log.gd" id="1_6aln7"]
 [ext_resource type="Script" path="res://Data/Events/PopupData.gd" id="2_87bku"]
 [ext_resource type="Texture2D" uid="uid://dtut83he6mu7b" path="res://Assets/YW025183V_A-volcano-Mount-Etna-erupting-at-night.jpg" id="3_h5d1i"]
 [ext_resource type="Script" path="res://Data/Events/PopupOption.gd" id="3_msoth"]
+[ext_resource type="Script" path="res://Data/Log/TemporaryLog.gd" id="4_rsavp"]
 [ext_resource type="Script" path="res://Data/Log/Transaction.gd" id="5_faqla"]
 [ext_resource type="Script" path="res://Data/Log/LogEntry.gd" id="5_jd50d"]
 [ext_resource type="Script" path="res://Data/FetchData/CountryResource.gd" id="6_6srmp"]
 [ext_resource type="Script" path="res://Data/Conditions/ConditionResource.gd" id="6_qv0xi"]
 [ext_resource type="Script" path="res://Data/Log/Event.gd" id="7_gjxs3"]
 [ext_resource type="Script" path="res://Data/FetchData/Constant.gd" id="7_i6r8a"]
+
+[sub_resource type="Resource" id="Resource_djh8p"]
+script = ExtResource("5_faqla")
+resource_type = "money"
+amount = -100
+affected_country = "holyland"
+
+[sub_resource type="Resource" id="Resource_j6d0x"]
+script = ExtResource("4_rsavp")
+duration = 5
+event = SubResource("Resource_djh8p")
+affected_country = "holyland"
 
 [sub_resource type="Resource" id="Resource_6ihcb"]
 script = ExtResource("5_faqla")
@@ -28,6 +41,7 @@ script = ExtResource("3_msoth")
 always_visible = false
 entries = Array[ExtResource("5_jd50d")]([SubResource("Resource_6ihcb"), SubResource("Resource_psl06")])
 text = "Children who want to go back to the mines says what?"
+auto_select_after = 10
 
 [sub_resource type="Resource" id="Resource_20cip"]
 script = ExtResource("6_6srmp")
@@ -51,6 +65,7 @@ always_visible = false
 condition = SubResource("Resource_66d6k")
 entries = Array[ExtResource("5_jd50d")]([])
 text = "Be kind to the children :("
+auto_select_after = -1
 
 [sub_resource type="Resource" id="Resource_q3k4o"]
 script = ExtResource("2_87bku")
@@ -58,7 +73,9 @@ ID = "hello"
 title = "Crybabies in country"
 image = ExtResource("3_h5d1i")
 flavour_text = "The children don't want to work"
+always_trigger_events = Array[ExtResource("5_jd50d")]([SubResource("Resource_j6d0x")])
 global = false
+appears_once = false
 options = Array[ExtResource("3_msoth")]([SubResource("Resource_j5lqq"), SubResource("Resource_6xrmt")])
 
 [node name="Log" type="Node"]

@@ -10,6 +10,7 @@ func set_resource(_resource : Resource_Type):
 	get_node("TextureRect").texture = resource.icon 
 	get_node("Label").text = str(resource.amount) + " (" + resource.display_income() + ")"
 	pass
+
 func mouse_entered():
 	UiManager.create_tooltip(resource.income_tooltip())
 	pass

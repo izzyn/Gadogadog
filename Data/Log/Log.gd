@@ -4,10 +4,16 @@ var log : Array[Log_Entry]
 var completed_events : Dictionary
 
 @export
+var world_seed : int
+@export
 var possible_events : Array[Popup_Data]
 var month_days = [31,28,31,30,31,30,31,31,30,31,30,31]
 
-signal time_updated(day, month, year)
+@export
+var start_day : int 
+
+var current_day : int 
+signal time_updated(day)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -19,32 +25,36 @@ func append_log(event : Log_Entry) -> void:
 	pass
 
 func update_time():
-	var day = CountryData.countries["world"].resources["day"].amount
-	var month = CountryData.countries["world"].resources["month"].amount
-	var year = CountryData.countries["world"].resources["year"].amount
-	if month == 2 and year % 4 == 0 and day == 28:
-		print("Leap day")
-		CountryData.countries["world"].resources["day"].amount += 1
-		return
-	if day < month_days[month-1]:
-		CountryData.countries["world"].resources["day"].amount += 1
-	if day >= month_days[month-1]:
-		CountryData.countries["world"].resources["day"].amount = 1
-		CountryData.countries["world"].resources["month"].amount += 1
-	if month >= 13:
-		CountryData.countries["world"].resources["year"].amount += 1
-		CountryData.countries["world"].resources["month"].amount = 1
-	day = CountryData.countries["world"].resources["day"].amount
-	month = CountryData.countries["world"].resources["month"].amount
-	year = CountryData.countries["world"].resources["year"].amount
+	var timelog = Update_Day_Log.new()
+	append_log(timelog)
 	for i in CountryData.countries:
 		var newlog = Time_Update_Log.new()
 		newlog.affected_country = i
-		newlog.day = day
-		newlog.month = month
-		newlog.year = year
+		newlog.day = current_day
 		append_log(newlog)
-	time_updated.emit(day, month, year)
+	time_updated.emit(current_day)
+	pass
+
+func get_calendar(total_days) -> Array[int]:
+	var year = 1
+	var month = 1
+	var day = 0
+	
+	var days_left = total_days
+	var year_length = 365
+	while days_left > year_length:
+		days_left -= year_length
+		year += 1
+		if year % 4 == 0:
+			year_length = 366
+		else:
+			year_length = 365
+	while days_left > month_days[month-1]:
+		days_left -= month_days[month - 1]
+		month += 1
+	
+	day = days_left
+	return [day, month, year]
 	pass
 
 func display_time(days) -> String:

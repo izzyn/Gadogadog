@@ -12,14 +12,22 @@ func create_popup(data : Popup_Data):
 	var body = popup.get_node("VBoxContainer2/MarginContainer/VBoxContainer")
 	popup.get_node("VBoxContainer2/TextureRect").texture = data.image
 	body.get_node("Label2").text = data.flavour_text
-	
+	data._has_appeared = true
 	for i in data.options:
 		if i.available():
 			var button = preload("res://UI/PopupButton.tscn").instantiate()
 			button.text = i.text
-			for j in i.entries:
+			var entries = i.entries.duplicate(true)
+			if data.always_trigger_events:
+				entries.append_array(data.always_trigger_events)
+			for j in entries:
 				button.tooltip += j.get_tooltip() + "\n"
-			button.entries = i.entries
+			if i.auto_select_after != -1:
+				button.auto_select_after = i.auto_select_after
+				var calendar = Log.get_calendar(i.auto_select_after + Log.current_day)
+				button.tooltip += "[color=yellow]Will be automatically selected by:[/color] "  + str(calendar[0]) + "/" + str(calendar[1]) + "/" + str(calendar[2])
+			button.time_created = Log.current_day
+			button.entries = entries
 			body.add_child(button)
 	popup.visible = true
 	add_child(popup)

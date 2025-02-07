@@ -15,6 +15,12 @@ var entries : Array[Log_Entry]
 @export
 var text : String
 
+## When in days the option will be automatically selected. Keep at -1 if it shouldn't be automatically selected
+@export
+var auto_select_after : int = -1
+
+var _time_created : int
+
 func available() -> bool:
 	if condition:
 		return condition.check()

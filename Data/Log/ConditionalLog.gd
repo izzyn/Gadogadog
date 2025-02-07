@@ -8,6 +8,7 @@ var condition : Condition
 var entry : Log_Entry
 
 var _was_enacted : bool
+
 func enact():
 	if condition.check():
 		_was_enacted = true
