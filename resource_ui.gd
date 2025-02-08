@@ -12,7 +12,8 @@ func set_resource(_resource : Resource_Type):
 	pass
 
 func mouse_entered():
-	UiManager.create_tooltip(resource.income_tooltip())
+	if resource.income_tooltip() != "":
+		UiManager.create_tooltip(resource.income_tooltip())
 	pass
 
 func mouse_exited():

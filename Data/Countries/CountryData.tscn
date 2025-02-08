@@ -71,4 +71,4 @@ countries = {
 "swirlers": SubResource("Resource_umh4p"),
 "world": SubResource("Resource_kc22w")
 }
-player_country_id = "swirlers"
+player_country_id = "holyland"
