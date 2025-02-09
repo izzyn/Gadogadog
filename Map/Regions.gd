@@ -1,7 +1,7 @@
 extends Node
 
 var dict = {}
-
+var clicked 
 var hoverdict = {}
 @onready
 var summary = get_tree().root.get_node("Map").get_node("CanvasLayer/RegionSummary")
@@ -31,26 +31,36 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var hovered = false
-	for i in hoverdict:
-		if hoverdict[i]:
-			i.material.set("shader_parameter/weight", 2.0)
-			for j in i.neighbours:
-				j.material.set("shader_parameter/weight", 1.5)
-			for j in get_children():
-				if j != i && !i.neighbours.has(j):
-					j.material.set("shader_parameter/weight", 1.0)
-			hovered = true
-			summary.visible = true
-			placename.text = i.name
-			countryname.text = CountryData.countries[i.owning_country].name
-			countrytexture.texture = CountryData.countries[i.owning_country].logo
-			countryname.label_settings.font_color = CountryData.countries[i.owning_country].color
-	if !hovered:
-		summary.visible = false
-		for i in get_children():
-			i.material.set("shader_parameter/weight", 1.0)
-	pass
+	if !clicked:
+		for i in hoverdict:
+			if hoverdict[i]:
+				selected_territory(i)
+				hovered = true
+		if !hovered:
+			summary.visible = false
+			for i in get_children():
+				i.material.set("shader_parameter/weight", 1.0)
+	else:
+		selected_territory(clicked)
+		pass
 
+func selected_territory(region : Polygon2D):
+	for i in get_children():
+		i.material.set("shader_parameter/weight", 1.0)
+	region.material.set("shader_parameter/weight", 2.0)
+	for i in region.neighbours: 
+		i.material.set("shader_parameter/weight", 1.5)
+	summary.visible = true
+	placename.text = region.name
+	countryname.text = CountryData.countries[region.owning_country].name
+	countrytexture.texture = CountryData.countries[region.owning_country].logo
+	countryname.label_settings.font_color = CountryData.countries[region.owning_country].color
+	pass
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Escape"):
+		clicked = null
+	pass
 
 func mouse_exited() -> void:
 	pass # Replace with function body.
