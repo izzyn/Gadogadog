@@ -1,73 +1,14 @@
-[gd_scene load_steps=22 format=3 uid="uid://cyu0ytw6wljip"]
+[gd_scene load_steps=19 format=3 uid="uid://cyu0ytw6wljip"]
 
-[ext_resource type="Script" path="res://Map/Regions.gd" id="1_4x2c8"]
-[ext_resource type="PackedScene" uid="uid://b6rrv46b6l0ww" path="res://Map/Region.tscn" id="2_rwqji"]
+[ext_resource type="Script" path="res://map.gd" id="1_rbels"]
 [ext_resource type="Shader" path="res://Region.gdshader" id="3_m8o2a"]
 [ext_resource type="Texture2D" uid="uid://4qwaqrw603p6" path="res://Assets/holylogo.svg" id="3_nqo17"]
 [ext_resource type="Script" path="res://ResourceBar.gd" id="7_gx6ao"]
 [ext_resource type="Script" path="res://CountryButton.gd" id="7_s7u3g"]
 [ext_resource type="PackedScene" uid="uid://dwe6opvhx2u8c" path="res://resource_ui.tscn" id="7_u6jg7"]
 [ext_resource type="Script" path="res://TimeButton.gd" id="9_4s4di"]
+[ext_resource type="PackedScene" uid="uid://bviog0k0v2v0m" path="res://testmap_exported.tscn" id="9_uglrw"]
 [ext_resource type="Script" path="res://time_display.gd" id="10_m3jtr"]
-
-[sub_resource type="Shader" id="Shader_ocrb4"]
-code = "shader_type canvas_item;
-
-uniform float weight : hint_range(0.0, 1.0, 0.1);
-
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
-void fragment() {
-	COLOR.rgb *= weight;
-	// Called for every pixel the material is visible on.
-}
-
-//void light() {
-	// Called for every pixel for every light affecting the CanvasItem.
-	// Uncomment to replace the default light processing function with this one.
-//}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rvnn5"]
-shader = SubResource("Shader_ocrb4")
-shader_parameter/weight = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v1x33"]
-resource_local_to_scene = true
-shader = ExtResource("3_m8o2a")
-shader_parameter/weight = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nafsg"]
-resource_local_to_scene = true
-shader = SubResource("Shader_ocrb4")
-shader_parameter/weight = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvcas"]
-resource_local_to_scene = true
-shader = SubResource("Shader_ocrb4")
-shader_parameter/weight = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k43ic"]
-resource_local_to_scene = true
-shader = SubResource("Shader_ocrb4")
-shader_parameter/weight = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2i5ts"]
-resource_local_to_scene = true
-shader = SubResource("Shader_ocrb4")
-shader_parameter/weight = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_56f22"]
-resource_local_to_scene = true
-shader = ExtResource("3_m8o2a")
-shader_parameter/weight = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uo0v3"]
-resource_local_to_scene = true
-shader = ExtResource("3_m8o2a")
-shader_parameter/weight = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_4hkhu"]
 font_size = 32
@@ -78,63 +19,41 @@ font_size = 18
 [sub_resource type="LabelSettings" id="LabelSettings_g7wi8"]
 font_size = 18
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o2u52"]
+resource_local_to_scene = true
+shader = ExtResource("3_m8o2a")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_okqkf"]
+resource_local_to_scene = true
+shader = ExtResource("3_m8o2a")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0gtg"]
+resource_local_to_scene = true
+shader = ExtResource("3_m8o2a")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ey0sb"]
+resource_local_to_scene = true
+shader = ExtResource("3_m8o2a")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ids5b"]
+resource_local_to_scene = true
+shader = ExtResource("3_m8o2a")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s1imn"]
+resource_local_to_scene = true
+shader = ExtResource("3_m8o2a")
+shader_parameter/weight = 1.0
+
 [node name="Map" type="Node2D"]
 position = Vector2(0.141388, 0.587173)
-
-[node name="Node" type="Node" parent="."]
-script = ExtResource("1_4x2c8")
-
-[node name="Rottensburg" parent="Node" instance=ExtResource("2_rwqji")]
-material = SubResource("ShaderMaterial_rvnn5")
-position = Vector2(0.141388, 0.587173)
-polygon = PackedVector2Array(-96.1946, -31.4102, -175.407, 97.0784, -31.2629, 120.194, -7.55794, 72.0477, -24.196, -31.8521)
-owning_country = "swirlers"
-
-[node name="Visageville" parent="Node" instance=ExtResource("2_rwqji")]
-material = SubResource("ShaderMaterial_v1x33")
-position = Vector2(0.141388, 0.587173)
-polygon = PackedVector2Array(-120.931, -151.261, -96.1946, -31.4102, -24.196, -31.8521, 15.4596, -88.0965)
-owning_country = "holyland"
-
-[node name="Realtown" parent="Node" instance=ExtResource("2_rwqji")]
-material = SubResource("ShaderMaterial_nafsg")
-position = Vector2(0.141388, 0.587173)
-polygon = PackedVector2Array(15.4596, -88.0965, 199.702, -49.2266, -7.55794, 72.0477, -24.196, -31.8521)
-owning_country = "holyland"
-
-[node name="Faketown" parent="Node" instance=ExtResource("2_rwqji")]
-material = SubResource("ShaderMaterial_uvcas")
-position = Vector2(0.141388, 0.587173)
-polygon = PackedVector2Array(199.702, -49.2266, 175.162, -137.078, 263.455, -89.6187, 287.111, -145.765, 166.868, -185.028, 15.4596, -88.0965)
-owning_country = "holyland"
-
-[node name="Villain Valley" parent="Node" instance=ExtResource("2_rwqji")]
-material = SubResource("ShaderMaterial_k43ic")
-position = Vector2(0.141388, 0.587173)
-polygon = PackedVector2Array(15.4596, -88.0965, 166.868, -185.028, 6.87052, -184.046, -25.3253, -215.849, -66.458, -188.061, -120.931, -151.261)
-owning_country = "holyland"
-
-[node name="Hobhall" parent="Node" instance=ExtResource("2_rwqji")]
-material = SubResource("ShaderMaterial_2i5ts")
-position = Vector2(0.141388, 0.587173)
-polygon = PackedVector2Array(-31.2629, 120.194, 152.734, 119.065, 232.143, 22.5756, 199.702, -49.2266, -7.55794, 72.0477)
-region_name = "Hobhall"
-owning_country = "swirlers"
-
-[node name="Brainrot Town" parent="Node" instance=ExtResource("2_rwqji")]
-material = SubResource("ShaderMaterial_56f22")
-polygon = PackedVector2Array(152.734, 119.065, 297.222, 198.179, 376.533, 85.6906, 255.799, -33.5706, 232.143, 22.5756)
-region_name = "Brainrot Town"
-owning_country = "swirlers"
-
-[node name="Valleyville" parent="Node" instance=ExtResource("2_rwqji")]
-material = SubResource("ShaderMaterial_uo0v3")
-polygon = PackedVector2Array(232.143, 22.5756, 199.702, -49.2266, 175.162, -137.078, 263.455, -89.6187, 287.111, -145.765, 375.06, -154.305, 431.108, -146.649, 415.403, -98.5515, 463.746, -42.8471, 431.845, -26.651, 440.188, 29.2988, 408.336, 53.4948, 376.091, 13.6919, 351.846, -26.16, 303.7, -49.8649, 287.749, -41.7669, 247.652, -57.5211, 255.799, -33.5706)
-owning_country = "holyland"
+script = ExtResource("1_rbels")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Empty" type="Polygon2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -279,6 +198,36 @@ layout_mode = 3
 anchors_preset = 0
 metadata/_edit_use_anchors_ = true
 
+[node name="Node" parent="." instance=ExtResource("9_uglrw")]
+position = Vector2(-248.141, -232.587)
+scale = Vector2(6.90671, 6.90671)
+
+[node name="Region" parent="Node" index="0"]
+material = SubResource("ShaderMaterial_o2u52")
+owning_country = "holyland"
+
+[node name="@Polygon2D@4" parent="Node" index="1"]
+material = SubResource("ShaderMaterial_okqkf")
+owning_country = "holyland"
+
+[node name="@Polygon2D@5" parent="Node" index="2"]
+material = SubResource("ShaderMaterial_e0gtg")
+owning_country = "swirlers"
+
+[node name="@Polygon2D@6" parent="Node" index="3"]
+material = SubResource("ShaderMaterial_ey0sb")
+owning_country = "swirlers"
+
+[node name="@Polygon2D@7" parent="Node" index="4"]
+material = SubResource("ShaderMaterial_ids5b")
+owning_country = "swirlers"
+
+[node name="@Polygon2D@8" parent="Node" index="5"]
+material = SubResource("ShaderMaterial_s1imn")
+owning_country = "holyland"
+
 [connection signal="mouse_entered" from="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" to="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" method="mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" to="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" method="mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer2/Button" to="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer2/Button" method="_on_pressed"]
+
+[editable path="Node"]

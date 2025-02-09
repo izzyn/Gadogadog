@@ -21,5 +21,5 @@ script = ExtResource("2_y5s2v")
 
 [node name="BoarderLine" type="Line2D" parent="."]
 closed = true
-width = 4.0
+width = 2.0
 default_color = Color(0, 0, 0, 1)

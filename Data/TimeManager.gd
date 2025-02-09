@@ -6,8 +6,6 @@ var speed : int = 1
 var timer = get_node("Timer") as Timer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer.start()
-	update_calendar()
 	pass # Replace with function body.
 
 func restart_timer() -> void:
@@ -20,7 +18,6 @@ func restart_timer() -> void:
 
 func update_time() -> void:
 	Log.update_time()
-	update_calendar()
 	if speed != 0:
 		timer.wait_time = 1.0 / speed
 		timer.start()
