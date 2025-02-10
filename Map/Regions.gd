@@ -30,20 +30,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var hovered = false
-	if !clicked:
-		for i in hoverdict:
-			if hoverdict[i]:
-				selected_territory(i)
-				hovered = true
-		if !hovered:
-			summary.visible = false
-			for i in get_children():
-				i.material.set("shader_parameter/weight", 1.0)
-	else:
-		selected_territory(clicked)
-		pass
+	pass
 
+func region_pressed(region):
+	for i in get_children():
+		i.material.set("shader_parameter/weight", 1.0)
+	if region != clicked:
+		clicked = region
+		selected_territory(region)
+	else:
+		clicked = null
+		
+	pass
 func selected_territory(region : Polygon2D):
 	for i in get_children():
 		i.material.set("shader_parameter/weight", 1.0)

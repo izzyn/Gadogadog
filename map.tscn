@@ -213,6 +213,7 @@ owning_country = "holyland"
 
 [node name="@Polygon2D@3" parent="Node" index="1"]
 material = SubResource("ShaderMaterial_3d6is")
+owning_country = "holyland"
 
 [node name="@Polygon2D@4" parent="Node" index="2"]
 material = SubResource("ShaderMaterial_okqkf")
@@ -220,18 +221,19 @@ owning_country = "holyland"
 
 [node name="@Polygon2D@5" parent="Node" index="3"]
 material = SubResource("ShaderMaterial_e0gtg")
-owning_country = "swirlers"
+owning_country = "holyland"
 
 [node name="@Polygon2D@6" parent="Node" index="4"]
 material = SubResource("ShaderMaterial_ey0sb")
-owning_country = "swirlers"
+owning_country = "holyland"
 
 [node name="@Polygon2D@7" parent="Node" index="5"]
 material = SubResource("ShaderMaterial_ids5b")
-owning_country = "swirlers"
+owning_country = "holyland"
 
 [node name="@Polygon2D@8" parent="Node" index="6"]
 material = SubResource("ShaderMaterial_nxxes")
+owning_country = "holyland"
 
 [connection signal="mouse_entered" from="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" to="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" method="mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" to="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" method="mouse_exited"]
