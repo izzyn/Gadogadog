@@ -8,6 +8,10 @@ var polygon_starts : Array[Vector2i]
 var current_color
 var current_region
 var file : Image
+
+var progress = 0
+var progress_text = ""
+var processing = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect("pressed", pressed)
@@ -15,11 +19,22 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func pressed():
+	var thread = Thread.new()
+	progress = 0
+	processing = true
+	progress_text = ""
 	var import_path = get_parent().get_node("HBoxContainer/LineEdit").text
-	
 	file = Image.load_from_file(import_path)
 	var texture = ImageTexture.create_from_image(file)
 	get_parent().get_parent().get_node("VBoxContainer2/TextureRect").texture = texture
+	thread.start(export_image.bind(import_path))
+	var bar = get_parent().get_node("ProgressBar")
+	pass
+
+func export_image(import_path):
+	
+	file = Image.load_from_file(import_path)
+	var texture = ImageTexture.create_from_image(file)
 	regions_bitmap.clear()
 	queued_pixels.clear()
 	queued_region_pixels.clear()
@@ -42,8 +57,12 @@ func pressed():
 	
 	
 	while true:
+		progress_text = "Detecting regions (this may take a while)"
 		if len(queued_pixels) == 0:
 			var next_pixel = queued_region_pixels.pop_front()
+			if !next_pixel:
+				break
+			print(len(regions_bitmap))
 			if regions_bitmap[next_pixel.x][next_pixel.y] == 0:
 				polygon_starts.append(next_pixel)
 				current_color = file.get_pixel(next_pixel.x, next_pixel.y)
@@ -75,7 +94,9 @@ func pressed():
 	var direction_y = 0
 	var previous_dir_x = 0
 	var previous_dir_y = 0
+	var total_polygons = len(polygon_starts)+1
 	while true:
+		progress_text = "Baking polygon %s/%s" % [len(polygons)+1, total_polygons]
 		previous_dir_x = direction_x
 		previous_dir_y = direction_y
 		var colour_difference = 0
@@ -176,7 +197,10 @@ func pressed():
 	
 
 	var map = load("res://regions.tscn").instantiate()
+	var index = 1
 	for i in polygons:
+		progress_text = "Creating polygon %s out of %s" % [index, len(polygons)]
+		index += 1
 		print("Creationg region...tes")
 		var region = load("res://Map/Region.tscn").instantiate()
 		region.polygon = i.duplicate()
@@ -184,10 +208,10 @@ func pressed():
 		region.set_owner(map)
 	var scene = PackedScene.new()
 	scene.pack(map)
-	
+	progress_text = "Saving..."
 	ResourceSaver.save(scene, "res://%s_exported.tscn" % import_path.split(".")[0])
+	processing = false 
 	pass
-
 func checkpixel(x,y):
 	
 	if regions_bitmap[x][y] == 0 and Vector2i(x,y) not in queued_pixels:
@@ -203,4 +227,7 @@ func checkpixel(x,y):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if processing:
+		get_parent().get_node("Label").text = progress_text
+	
 	pass

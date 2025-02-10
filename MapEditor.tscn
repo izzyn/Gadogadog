@@ -57,10 +57,13 @@ text = "Import
 "
 script = ExtResource("1_osoly")
 
-[node name="Label" type="RichTextLabel" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
-size_flags_vertical = 3
-bbcode_enabled = true
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "aaaa"
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2

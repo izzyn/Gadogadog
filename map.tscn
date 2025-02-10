@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://CountryButton.gd" id="7_s7u3g"]
 [ext_resource type="PackedScene" uid="uid://dwe6opvhx2u8c" path="res://resource_ui.tscn" id="7_u6jg7"]
 [ext_resource type="Script" path="res://TimeButton.gd" id="9_4s4di"]
-[ext_resource type="PackedScene" uid="uid://bviog0k0v2v0m" path="res://testmap_exported.tscn" id="9_uglrw"]
+[ext_resource type="PackedScene" uid="uid://bwj5f0h3peums" path="res://testmap_exported.tscn" id="9_uglrw"]
 [ext_resource type="Script" path="res://time_display.gd" id="10_m3jtr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4hkhu"]
@@ -20,6 +20,11 @@ font_size = 18
 font_size = 18
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o2u52"]
+resource_local_to_scene = true
+shader = ExtResource("3_m8o2a")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3d6is"]
 resource_local_to_scene = true
 shader = ExtResource("3_m8o2a")
 shader_parameter/weight = 1.0
@@ -40,11 +45,6 @@ shader = ExtResource("3_m8o2a")
 shader_parameter/weight = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ids5b"]
-resource_local_to_scene = true
-shader = ExtResource("3_m8o2a")
-shader_parameter/weight = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s1imn"]
 resource_local_to_scene = true
 shader = ExtResource("3_m8o2a")
 shader_parameter/weight = 1.0
@@ -206,25 +206,24 @@ scale = Vector2(6.90671, 6.90671)
 material = SubResource("ShaderMaterial_o2u52")
 owning_country = "holyland"
 
-[node name="@Polygon2D@4" parent="Node" index="1"]
+[node name="@Polygon2D@3" parent="Node" index="1"]
+material = SubResource("ShaderMaterial_3d6is")
+
+[node name="@Polygon2D@4" parent="Node" index="2"]
 material = SubResource("ShaderMaterial_okqkf")
 owning_country = "holyland"
 
-[node name="@Polygon2D@5" parent="Node" index="2"]
+[node name="@Polygon2D@5" parent="Node" index="3"]
 material = SubResource("ShaderMaterial_e0gtg")
 owning_country = "swirlers"
 
-[node name="@Polygon2D@6" parent="Node" index="3"]
+[node name="@Polygon2D@6" parent="Node" index="4"]
 material = SubResource("ShaderMaterial_ey0sb")
 owning_country = "swirlers"
 
-[node name="@Polygon2D@7" parent="Node" index="4"]
+[node name="@Polygon2D@7" parent="Node" index="5"]
 material = SubResource("ShaderMaterial_ids5b")
 owning_country = "swirlers"
-
-[node name="@Polygon2D@8" parent="Node" index="5"]
-material = SubResource("ShaderMaterial_s1imn")
-owning_country = "holyland"
 
 [connection signal="mouse_entered" from="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" to="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" method="mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" to="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" method="mouse_exited"]
