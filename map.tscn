@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cyu0ytw6wljip"]
+[gd_scene load_steps=20 format=3 uid="uid://cyu0ytw6wljip"]
 
 [ext_resource type="Script" path="res://map.gd" id="1_rbels"]
 [ext_resource type="Shader" path="res://Region.gdshader" id="3_m8o2a"]
@@ -45,6 +45,11 @@ shader = ExtResource("3_m8o2a")
 shader_parameter/weight = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ids5b"]
+resource_local_to_scene = true
+shader = ExtResource("3_m8o2a")
+shader_parameter/weight = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nxxes"]
 resource_local_to_scene = true
 shader = ExtResource("3_m8o2a")
 shader_parameter/weight = 1.0
@@ -224,6 +229,9 @@ owning_country = "swirlers"
 [node name="@Polygon2D@7" parent="Node" index="5"]
 material = SubResource("ShaderMaterial_ids5b")
 owning_country = "swirlers"
+
+[node name="@Polygon2D@8" parent="Node" index="6"]
+material = SubResource("ShaderMaterial_nxxes")
 
 [connection signal="mouse_entered" from="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" to="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" method="mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" to="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" method="mouse_exited"]

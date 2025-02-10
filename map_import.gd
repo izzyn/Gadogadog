@@ -90,11 +90,14 @@ func export_image(import_path):
 	var current_polygon = []
 	var offset_x = 0
 	var offset_y = 0
+	var terminate_offset_x = 0
+	var terminate_offset_y = 0
 	var direction_x = 0
 	var direction_y = 0
 	var previous_dir_x = 0
 	var previous_dir_y = 0
 	var total_polygons = len(polygon_starts)+1
+	var offset = false
 	while true:
 		progress_text = "Baking polygon %s/%s" % [len(polygons)+1, total_polygons]
 		previous_dir_x = direction_x
@@ -103,6 +106,8 @@ func export_image(import_path):
 		var total_colours = 0
 		var region_hash = {}
 		if changed_regions:
+			previous_dir_x = 0
+			previous_dir_y = 0
 			if first_pixel.x == 0 or regions_bitmap[first_pixel.x-1][first_pixel.y] != check_region:
 				quadrant = [first_pixel, Vector2i(first_pixel.x - 1, first_pixel.y), Vector2i(first_pixel.x, first_pixel.y - 1), Vector2i(first_pixel.x - 1, first_pixel.y - 1)]
 				direction_y = 1
@@ -115,6 +120,13 @@ func export_image(import_path):
 			elif len(regions_bitmap[first_pixel.x]) <= first_pixel.y or regions_bitmap[first_pixel][first_pixel+1] != check_region:
 				quadrant = [first_pixel, Vector2i(first_pixel.x - 1, first_pixel.y + 1), Vector2i(first_pixel.x-1, first_pixel.y), Vector2i(first_pixel.x, first_pixel.y + 1)]
 				direction_x = 1
+			offset = true
+			changed_regions = false
+			offset_x += direction_x
+			offset_y += direction_y
+			terminate_offset_x = offset_x
+			terminate_offset_y = offset_y
+			continue
 		for i in quadrant:
 			var actual_x = i.x + offset_x
 			var actual_y = i.y + offset_y
@@ -152,7 +164,25 @@ func export_image(import_path):
 		var x_coord = 0.0
 		var y_coord = 0.0
 		
+		
+
+		if !offset and !changed_regions and offset_x == terminate_offset_x and offset_y == terminate_offset_y:
+			polygons.append(current_polygon.duplicate())
+			current_polygon = []
+			changed_regions = true
+			if len(polygon_starts) == 0:
+				break
+			else:
+				first_pixel = polygon_starts.pop_back()
+				check_region = regions_bitmap[first_pixel.x][first_pixel.y]
+				direction_x = 0
+				direction_y = 0
+				offset_x = 0
+				offset_y = 0
+				continue
 		if colour_difference == 3 or colour_difference == 1:
+			print("Terminate offset: ", terminate_offset_x, " ", terminate_offset_y)
+			print("Offfset: ", offset_x, " ", offset_y)
 			for i in quadrant: 
 				x_coord += i.x + offset_x
 				y_coord += i.y + offset_y
@@ -164,31 +194,16 @@ func export_image(import_path):
 					current_polygon.append(first_poly)
 				x_coord += float(direction_x)/2
 				y_coord += float(direction_y)/2
-
-			if !changed_regions and offset_x == 0 and offset_y == 0:
-				polygons.append(current_polygon.duplicate())
-				current_polygon = []
-				changed_regions = true
-				if len(polygon_starts) == 0:
-					break
-				else:
-					first_pixel = polygon_starts.pop_back()
-					check_region = regions_bitmap[first_pixel.x][first_pixel.y]
-					direction_x = 0
-					direction_y = 0
-					offset_x = 0
-					offset_y = 0
-					continue
-			else:
-				if len(current_polygon) == 0 or !current_polygon[len(current_polygon) - 1] == Vector2(x_coord, y_coord):
-					current_polygon.append(Vector2(x_coord, y_coord))
-			if len(current_polygon) >= 3:
-				var dy1 =  abs(current_polygon[len(current_polygon)-1].y - current_polygon[len(current_polygon)-2].y)
-				var dy2 = abs(current_polygon[len(current_polygon)-1].y - current_polygon[len(current_polygon)-3].y)
-				var dx1 = abs(current_polygon[len(current_polygon)-1].x - current_polygon[len(current_polygon)-2].x)
-				var dx2 = abs(current_polygon[len(current_polygon)-1].x - current_polygon[len(current_polygon)-3].x)
-				if dy1/dx1 == dy2/dx2:
-					current_polygon.remove_at(len(current_polygon) - 2)
+			if len(current_polygon) == 0 or !current_polygon[len(current_polygon) - 1] == Vector2(x_coord, y_coord):
+				current_polygon.append(Vector2(x_coord, y_coord))
+				if len(current_polygon) >= 3:
+					var dy1 =  abs(current_polygon[len(current_polygon)-1].y - current_polygon[len(current_polygon)-2].y)
+					var dy2 = abs(current_polygon[len(current_polygon)-1].y - current_polygon[len(current_polygon)-3].y)
+					var dx1 = abs(current_polygon[len(current_polygon)-1].x - current_polygon[len(current_polygon)-2].x)
+					var dx2 = abs(current_polygon[len(current_polygon)-1].x - current_polygon[len(current_polygon)-3].x)
+					if dy1/dx1 == dy2/dx2:
+						current_polygon.remove_at(len(current_polygon) - 2)
+		offset = false
 		changed_regions = false
 		offset_x += direction_x
 		offset_y += direction_y
