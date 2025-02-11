@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 	pass
 
 func region_pressed(region):
+	summary.visible = false
 	for i in get_children():
 		i.material.set("shader_parameter/weight", 1.0)
 	if region != clicked:

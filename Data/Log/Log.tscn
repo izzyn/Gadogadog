@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cv4r78mnn162u"]
+[gd_scene load_steps=45 format=3 uid="uid://cv4r78mnn162u"]
 
 [ext_resource type="Script" path="res://Data/Log/Log.gd" id="1_6aln7"]
 [ext_resource type="Script" path="res://Data/Events/PopupData.gd" id="2_87bku"]
@@ -31,11 +31,6 @@ script = ExtResource("4_rsavp")
 duration = 5
 event = SubResource("Resource_djh8p")
 affected_country = "current"
-
-[sub_resource type="Resource" id="Resource_hdg73"]
-script = ExtResource("13_4pgd2")
-chance = 0.0
-display = false
 
 [sub_resource type="Resource" id="Resource_psl06"]
 script = ExtResource("7_gjxs3")
@@ -89,12 +84,11 @@ flavour_text = "The children don't want to work"
 always_trigger_events = Array[ExtResource("5_jd50d")]([SubResource("Resource_j6d0x")])
 global = false
 appears_once = true
-condition = SubResource("Resource_hdg73")
 options = Array[ExtResource("3_msoth")]([SubResource("Resource_j5lqq"), SubResource("Resource_6xrmt")])
 
 [sub_resource type="Resource" id="Resource_mtjbg"]
 script = ExtResource("13_4pgd2")
-chance = 0.0
+chance = 0.5
 display = false
 
 [sub_resource type="Resource" id="Resource_ysqn5"]
@@ -170,14 +164,9 @@ eventid = "steve"
 inverted = true
 display = false
 
-[sub_resource type="Resource" id="Resource_sna6x"]
-script = ExtResource("13_4pgd2")
-chance = 0.0
-display = false
-
 [sub_resource type="Resource" id="Resource_q5j1k"]
 script = ExtResource("15_6jepd")
-conditions = Array[ExtResource("12_b2vjt")]([SubResource("Resource_ffooe"), SubResource("Resource_hep1g"), SubResource("Resource_sna6x")])
+conditions = Array[ExtResource("12_b2vjt")]([SubResource("Resource_ffooe"), SubResource("Resource_hep1g")])
 display = false
 
 [sub_resource type="Resource" id="Resource_6bckk"]
