@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bag12rcjxron5"]
 
-[ext_resource type="Script" path="res://Data/TimeManager.gd" id="1_68tck"]
+[ext_resource type="Script" path="res://TimeManager.gd" id="1_68tck"]
 
 [node name="TimeManager" type="Node"]
 script = ExtResource("1_68tck")

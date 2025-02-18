@@ -10,6 +10,9 @@ var possible_events : Array[Popup_Data]
 var month_days = [31,28,31,30,31,30,31,31,30,31,30,31]
 
 @export
+var buildings : Dictionary
+
+@export
 var start_day : int 
 
 @export

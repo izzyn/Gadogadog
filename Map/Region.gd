@@ -16,8 +16,9 @@ var _stability
 var max_infra : int
 
 @export
-var max_factories : int
+var max_buildings : int
 
+var buildings : Array[Building]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

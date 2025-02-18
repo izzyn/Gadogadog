@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bc4cue2a2i7t7"]
 
-[ext_resource type="Script" path="res://map_import.gd" id="1_osoly"]
+[ext_resource type="Script" path="res://MapConverter/map_import.gd" id="1_5xwoo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4yunr"]
 font_size = 32
@@ -55,7 +55,7 @@ expand_to_text_length = true
 layout_mode = 2
 text = "Import
 "
-script = ExtResource("1_osoly")
+script = ExtResource("1_5xwoo")
 
 [node name="ProgressBar" type="ProgressBar" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 visible = false

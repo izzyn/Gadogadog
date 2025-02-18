@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://ResourceBar.gd" id="7_gx6ao"]
 [ext_resource type="Script" path="res://CountryButton.gd" id="7_s7u3g"]
 [ext_resource type="PackedScene" uid="uid://dwe6opvhx2u8c" path="res://resource_ui.tscn" id="7_u6jg7"]
-[ext_resource type="Script" path="res://TimeButton.gd" id="9_4s4di"]
+[ext_resource type="Script" path="res://UI/TimeButton.gd" id="9_4s4di"]
 [ext_resource type="PackedScene" uid="uid://bwj5f0h3peums" path="res://testmap_exported.tscn" id="9_uglrw"]
-[ext_resource type="Script" path="res://time_display.gd" id="10_m3jtr"]
+[ext_resource type="Script" path="res://UI/time_display.gd" id="10_m3jtr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4hkhu"]
 font_size = 32
