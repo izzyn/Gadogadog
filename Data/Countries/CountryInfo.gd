@@ -10,6 +10,8 @@ var logo : Texture
 @export
 var color : Color
 
+@export
+var unlocked_buildings : Array[String]
 ##resources, is a dictionary of type Key: String -> Value: Resource_Type
 @export
 var resources : Dictionary = {

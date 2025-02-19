@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cv4r78mnn162u"]
+[gd_scene load_steps=47 format=3 uid="uid://cv4r78mnn162u"]
 
 [ext_resource type="Script" path="res://Data/Log/Log.gd" id="1_6aln7"]
 [ext_resource type="Script" path="res://Data/Events/PopupData.gd" id="2_87bku"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dctb6ccop2kca" path="res://Assets/pexels-photo-3363426.jpeg" id="16_rvfsr"]
 [ext_resource type="Script" path="res://Data/Conditions/ConditionEvent.gd" id="17_tl0vm"]
 [ext_resource type="Texture2D" uid="uid://l80bv6uiigpr" path="res://Assets/entrepreneur-computer-man-office-preview.jpg" id="18_mmfxv"]
+[ext_resource type="Script" path="res://Data/Regions/Building.gd" id="20_hi1cq"]
 
 [sub_resource type="Resource" id="Resource_djh8p"]
 script = ExtResource("5_faqla")
@@ -194,6 +195,17 @@ appears_once = true
 condition = SubResource("Resource_q5j1k")
 options = Array[ExtResource("3_msoth")]([SubResource("Resource_masdy")])
 
+[sub_resource type="Resource" id="Resource_cdnl7"]
+script = ExtResource("20_hi1cq")
+name = ""
+flavour_text = ""
+income = {}
+upkeep = {}
+modifiers = {}
+
 [node name="Log" type="Node"]
 script = ExtResource("1_6aln7")
 possible_events = Array[ExtResource("2_87bku")]([SubResource("Resource_q3k4o"), SubResource("Resource_sybl5"), SubResource("Resource_hrobc")])
+buildings = {
+"commercial": SubResource("Resource_cdnl7")
+}

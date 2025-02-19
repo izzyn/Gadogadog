@@ -20,8 +20,25 @@ script = ExtResource("5_xl1gb")
 name = "Holy holyland"
 logo = ExtResource("2_3hfo0")
 color = Color(0.870588, 0.721569, 0.305882, 1)
+unlocked_buildings = Array[String]([])
 resources = {
 "money": SubResource("Resource_bgnjg")
+}
+
+[sub_resource type="Resource" id="Resource_002si"]
+script = ExtResource("4_dqgkg")
+icon = ExtResource("3_enl0f")
+amount = 5000
+income = {}
+
+[sub_resource type="Resource" id="Resource_umh4p"]
+script = ExtResource("5_xl1gb")
+name = "The Swirlers"
+logo = ExtResource("6_q4fct")
+color = Color(1, 0.352941, 0.352941, 1)
+unlocked_buildings = Array[String]([])
+resources = {
+"money": SubResource("Resource_002si")
 }
 
 [sub_resource type="Resource" id="Resource_o8t0k"]
@@ -43,25 +60,11 @@ income = {}
 script = ExtResource("5_xl1gb")
 name = "world"
 color = Color(0, 0, 0, 1)
+unlocked_buildings = Array[String]([])
 resources = {
 "day": SubResource("Resource_o8t0k"),
 "month": SubResource("Resource_y7n8w"),
 "year": SubResource("Resource_hv1va")
-}
-
-[sub_resource type="Resource" id="Resource_002si"]
-script = ExtResource("4_dqgkg")
-icon = ExtResource("3_enl0f")
-amount = 5000
-income = {}
-
-[sub_resource type="Resource" id="Resource_umh4p"]
-script = ExtResource("5_xl1gb")
-name = "The Swirlers"
-logo = ExtResource("6_q4fct")
-color = Color(1, 0.352941, 0.352941, 1)
-resources = {
-"money": SubResource("Resource_002si")
 }
 
 [node name="CountryData" type="Node"]
