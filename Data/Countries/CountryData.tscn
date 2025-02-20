@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://d1bne15nfycuf"]
+[gd_scene load_steps=17 format=3 uid="uid://d1bne15nfycuf"]
 
 [ext_resource type="Script" path="res://Data/CountryData.gd" id="1_p7lka"]
 [ext_resource type="Texture2D" uid="uid://4qwaqrw603p6" path="res://Assets/holylogo.svg" id="2_3hfo0"]
 [ext_resource type="Texture2D" uid="uid://bruuaxu072gfv" path="res://Assets/money.svg" id="3_enl0f"]
 [ext_resource type="Script" path="res://Data/ResourceType.gd" id="4_dqgkg"]
+[ext_resource type="Texture2D" uid="uid://nitlej7dw83v" path="res://Assets/steel.png" id="5_wvna6"]
 [ext_resource type="Script" path="res://Data/Countries/CountryInfo.gd" id="5_xl1gb"]
 [ext_resource type="Texture2D" uid="uid://125hf01me7lv" path="res://Assets/swirlylogo.svg" id="6_q4fct"]
 
@@ -15,6 +16,12 @@ income = {
 "Trades": 100
 }
 
+[sub_resource type="Resource" id="Resource_op33y"]
+script = ExtResource("4_dqgkg")
+icon = ExtResource("5_wvna6")
+amount = 2100
+income = {}
+
 [sub_resource type="Resource" id="Resource_atrhw"]
 script = ExtResource("5_xl1gb")
 name = "Holy holyland"
@@ -22,7 +29,8 @@ logo = ExtResource("2_3hfo0")
 color = Color(0.870588, 0.721569, 0.305882, 1)
 unlocked_buildings = Array[String]([])
 resources = {
-"money": SubResource("Resource_bgnjg")
+"money": SubResource("Resource_bgnjg"),
+"steel": SubResource("Resource_op33y")
 }
 
 [sub_resource type="Resource" id="Resource_002si"]
