@@ -18,7 +18,8 @@ var max_infra : int
 @export
 var max_buildings : int
 
-var buildings : Array[Building]
+@export
+var buildings : Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

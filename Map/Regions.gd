@@ -4,13 +4,16 @@ var dict = {}
 var clicked 
 var hoverdict = {}
 @onready
-var summary = get_tree().root.get_node("Map").get_node("CanvasLayer/RegionSummary")
+var summary = get_tree().root.get_node("Map").get_node("CanvasLayer/HBoxContainer/PanelContainer")
 @onready
-var placename = summary.get_node("PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/Label")
+var build_menu = get_tree().root.get_node("Map").get_node("CanvasLayer/HBoxContainer/PanelContainer2")
 @onready
-var countryname = summary.get_node("PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/Country")
+var placename = summary.get_node("MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/Label")
 @onready
-var countrytexture = summary.get_node("PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/TextureRect")
+var countryname = summary.get_node("MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/Country")
+@onready
+var countrytexture = summary.get_node("MarginContainer/VBoxContainer2/HBoxContainer/TextureRect")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in get_children():
@@ -34,6 +37,7 @@ func _process(delta: float) -> void:
 
 func region_pressed(region):
 	summary.visible = false
+	build_menu.visible = false
 	for i in get_children():
 		i.material.set("shader_parameter/weight", 1.0)
 	if region != clicked:
@@ -54,6 +58,18 @@ func selected_territory(region : Polygon2D):
 	countryname.text = CountryData.countries[region.owning_country].name
 	countrytexture.texture = CountryData.countries[region.owning_country].logo
 	countryname.label_settings.font_color = CountryData.countries[region.owning_country].color
+	var buildings_ui = summary.get_node("MarginContainer/VBoxContainer2/Buildings")
+	for child in buildings_ui.get_children():
+		child.queue_free()
+	
+	for i in region.buildings:
+		var ui = preload("res://UI/BuildingUI.tscn").instantiate()
+		buildings_ui.add_child(ui)
+		ui.get_node("PanelContainer/HBoxContainer/TextureRect").texture = Log.buildings[i].icon
+		ui.get_node("PanelContainer/HBoxContainer/BuildingName").text = Log.buildings[i].name
+		ui.get_node("PanelContainer/HBoxContainer/Label2").text = str(region.buildings[i])
+		ui.get_node("PanelContainer2/Button").building_id = i
+		
 	pass
 	
 func _input(event: InputEvent) -> void:

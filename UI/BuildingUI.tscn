@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://kn6f4j0d3cag"]
+[gd_scene load_steps=3 format=3 uid="uid://kn6f4j0d3cag"]
 
 [ext_resource type="Texture2D" uid="uid://k7w4nr40dbf5" path="res://Assets/Factory.svg" id="1_dog14"]
+[ext_resource type="Script" path="res://UI/buildbuildingbutton.gd" id="2_ecbfr"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
 offset_right = 40.0
@@ -17,7 +18,7 @@ layout_mode = 2
 texture = ExtResource("1_dog14")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer"]
+[node name="BuildingName" type="Label" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 text = "Commercial Districts:"
 
@@ -33,3 +34,4 @@ layout_mode = 2
 [node name="Button" type="Button" parent="PanelContainer2"]
 layout_mode = 2
 text = "Build"
+script = ExtResource("2_ecbfr")

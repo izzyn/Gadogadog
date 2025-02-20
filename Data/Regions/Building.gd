@@ -10,13 +10,17 @@ var name : String
 @export
 var flavour_text : String
 
+## ID -> amount
 @export
-# Resource -> Tuple(Destination, amount)
+var cost : Dictionary
+
+## Resource -> amount
+@export
 var income : Dictionary
 
 @export
 var upkeep : Dictionary 
 
+## Name -> amount
 @export
-# Name -> Tuple(Destination, Tuple(Resource, Amount))
 var modifiers : Dictionary
