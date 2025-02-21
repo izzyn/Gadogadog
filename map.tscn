@@ -168,6 +168,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(450, 200)
 layout_mode = 2
 size_flags_vertical = 8
@@ -220,6 +221,7 @@ text = "Build New Building
 "
 
 [node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 size_flags_horizontal = 0

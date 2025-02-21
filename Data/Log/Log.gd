@@ -18,6 +18,9 @@ var start_day : int
 @export
 var update_country : String
 
+@export 
+var update_region : String
+
 var current_day : int 
 signal time_updated(day)
 # Called when the node enters the scene tree for the first time.
