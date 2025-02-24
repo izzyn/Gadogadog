@@ -21,7 +21,8 @@ var update_country : String
 @export 
 var update_region : String
 
-var current_day : int 
+var current_day : int
+
 signal time_updated(day)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -86,6 +87,7 @@ func display_time(days) -> String:
 	else:
 		return "[color=yellow]" + str(days) + "[/color]" + " days"
 	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
