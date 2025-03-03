@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cv4r78mnn162u"]
+[gd_scene load_steps=57 format=3 uid="uid://cv4r78mnn162u"]
 
 [ext_resource type="Script" path="res://Data/Log/Log.gd" id="1_6aln7"]
 [ext_resource type="Script" path="res://Data/Events/PopupData.gd" id="2_87bku"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Data/Conditions/ConditionResource.gd" id="6_qv0xi"]
 [ext_resource type="Script" path="res://Data/Log/Event.gd" id="7_gjxs3"]
 [ext_resource type="Script" path="res://Data/FetchData/Constant.gd" id="7_i6r8a"]
+[ext_resource type="Script" path="res://Data/FetchCountry.gd" id="8_1q2he"]
 [ext_resource type="Script" path="res://Data/Conditions/Condition.gd" id="12_b2vjt"]
 [ext_resource type="Script" path="res://Data/Conditions/ConditionRandom.gd" id="13_4pgd2"]
 [ext_resource type="Script" path="res://Data/Conditions/ConditionTime.gd" id="14_nt3q6"]
@@ -22,29 +23,40 @@
 [ext_resource type="Script" path="res://Data/Regions/Building.gd" id="20_hi1cq"]
 [ext_resource type="Texture2D" uid="uid://k7w4nr40dbf5" path="res://Assets/Factory.svg" id="20_mdyhn"]
 
+[sub_resource type="Resource" id="Resource_ljpc6"]
+script = ExtResource("8_1q2he")
+country_id = "current"
+
 [sub_resource type="Resource" id="Resource_djh8p"]
 script = ExtResource("5_faqla")
 resource_type = "money"
 amount = -100
-affected_country = "current"
+affected_country = SubResource("Resource_ljpc6")
 
 [sub_resource type="Resource" id="Resource_j6d0x"]
 script = ExtResource("4_rsavp")
 duration = 5
 event = SubResource("Resource_djh8p")
-affected_country = "current"
+
+[sub_resource type="Resource" id="Resource_s6eou"]
+script = ExtResource("8_1q2he")
+country_id = "current"
 
 [sub_resource type="Resource" id="Resource_psl06"]
 script = ExtResource("7_gjxs3")
 ID = "sadkids"
 event_name = "Sad Children"
-affected_country = "update"
+affected_country = SubResource("Resource_s6eou")
+
+[sub_resource type="Resource" id="Resource_rj6ri"]
+script = ExtResource("8_1q2he")
+country_id = "current"
 
 [sub_resource type="Resource" id="Resource_mau0v"]
 script = ExtResource("5_faqla")
 resource_type = "money"
 amount = 100
-affected_country = "update"
+affected_country = SubResource("Resource_rj6ri")
 
 [sub_resource type="Resource" id="Resource_j5lqq"]
 script = ExtResource("3_msoth")
@@ -53,9 +65,13 @@ entries = Array[ExtResource("5_jd50d")]([SubResource("Resource_psl06"), SubResou
 text = "Children who want to go back to the mines says what?"
 auto_select_after = 10
 
+[sub_resource type="Resource" id="Resource_30u1g"]
+script = ExtResource("8_1q2he")
+country_id = "current"
+
 [sub_resource type="Resource" id="Resource_20cip"]
 script = ExtResource("6_6srmp")
-country_id = "update"
+country_id = SubResource("Resource_30u1g")
 country_resource_id = "money"
 
 [sub_resource type="Resource" id="Resource_kp530"]
@@ -119,7 +135,6 @@ auto_select_after = -1
 [sub_resource type="Resource" id="Resource_o7x5u"]
 script = ExtResource("17_tl0vm")
 global = false
-countryid = ""
 eventid = "sadkids"
 inverted = false
 display = false
@@ -144,24 +159,36 @@ appears_once = false
 condition = SubResource("Resource_tsmt8")
 options = Array[ExtResource("3_msoth")]([SubResource("Resource_4xvna"), SubResource("Resource_acyxu")])
 
+[sub_resource type="Resource" id="Resource_cfhnq"]
+script = ExtResource("8_1q2he")
+country_id = "current"
+
 [sub_resource type="Resource" id="Resource_tr483"]
 script = ExtResource("7_gjxs3")
 ID = "steve"
 event_name = "Steve"
-affected_country = "current"
+affected_country = SubResource("Resource_cfhnq")
+
+[sub_resource type="Resource" id="Resource_gi4o7"]
+script = ExtResource("8_1q2he")
+country_id = "current"
 
 [sub_resource type="Resource" id="Resource_ffooe"]
 script = ExtResource("17_tl0vm")
 global = false
-countryid = "update"
+countryid = SubResource("Resource_gi4o7")
 eventid = "sadkids"
 inverted = false
 display = false
 
+[sub_resource type="Resource" id="Resource_jnu8r"]
+script = ExtResource("8_1q2he")
+country_id = "current"
+
 [sub_resource type="Resource" id="Resource_hep1g"]
 script = ExtResource("17_tl0vm")
 global = false
-countryid = "update"
+countryid = SubResource("Resource_jnu8r")
 eventid = "steve"
 inverted = true
 display = false
@@ -171,11 +198,15 @@ script = ExtResource("15_6jepd")
 conditions = Array[ExtResource("12_b2vjt")]([SubResource("Resource_ffooe"), SubResource("Resource_hep1g")])
 display = false
 
+[sub_resource type="Resource" id="Resource_yx7ey"]
+script = ExtResource("8_1q2he")
+country_id = "current"
+
 [sub_resource type="Resource" id="Resource_6bckk"]
 script = ExtResource("5_faqla")
 resource_type = "money"
 amount = 1000
-affected_country = "current"
+affected_country = SubResource("Resource_yx7ey")
 
 [sub_resource type="Resource" id="Resource_masdy"]
 script = ExtResource("3_msoth")
@@ -187,9 +218,9 @@ auto_select_after = -1
 [sub_resource type="Resource" id="Resource_hrobc"]
 script = ExtResource("2_87bku")
 ID = "steve"
-title = "The Children Have turned into Steve"
+title = "Steve"
 image = ExtResource("18_mmfxv")
-flavour_text = "After working in the mines, all children returned as steve from accounting"
+flavour_text = "After working in the mines, all children have returned as steve from accounting"
 always_trigger_events = Array[ExtResource("5_jd50d")]([SubResource("Resource_tr483")])
 global = false
 appears_once = true

@@ -15,23 +15,21 @@ var buildings : Dictionary
 @export
 var start_day : int 
 
-@export
 var update_country : String
 
-@export 
 var update_region : String
 
 var current_day : int
 
 signal time_updated(day)
+
+signal update_variable(variable, value)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 func append_log(event : Log_Entry) -> void:
-	if event.affected_country == "current":
-		event.affected_country = CountryData.player_country_id
-		
 	event.enact()
 	log.append(event)
 	get_tree().root.get_node("Map/CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer").update_bar()
@@ -41,11 +39,10 @@ func update_time():
 	var timelog = Update_Day_Log.new()
 	append_log(timelog)
 	for i in CountryData.countries:
-		if i == "current": continue
-		if i == "update": continue
-		
 		var newlog = Time_Update_Log.new()
-		newlog.affected_country = i
+		var fetchcountry = Fetch_Country.new()
+		fetchcountry.country_id = i
+		newlog.affected_country = fetchcountry
 		newlog.day = current_day
 		append_log(newlog)
 	time_updated.emit(current_day)

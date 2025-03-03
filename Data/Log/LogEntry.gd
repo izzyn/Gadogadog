@@ -2,12 +2,8 @@ extends Resource
 class_name Log_Entry
 
 @export
-var affected_country : String
+var affected_country : Fetch_Country
 
-func pre_enact():
-	if affected_country == "current":
-		affected_country = CountryData.player_country_id
-	pass
 func enact():
 	print("Not Implemented")
 	pass

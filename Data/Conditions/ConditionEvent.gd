@@ -6,7 +6,7 @@ var global : bool
 
 ##Country to check for event, if global is enabled this does nothing.
 @export
-var countryid : String 
+var countryid : Fetch_Country 
 
 @export
 var eventid : String
@@ -15,17 +15,12 @@ var eventid : String
 @export
 var inverted : bool
 
-func check() -> bool:
-	var country_check = countryid
-	if countryid == "update":
-		country_check = Log.update_country
-	if countryid == "current":
-		country_check = CountryData.player_country_id
 
+func check() -> bool:
 	if Log.completed_events.has(eventid):
 		if global:
 			return not inverted
-		else: if country_check in Log.completed_events[eventid]:
+		else: if countryid.country_id in Log.completed_events[eventid]:
 			return not inverted
 	return inverted
 	pass

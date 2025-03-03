@@ -22,8 +22,6 @@ func create_popup(data : Popup_Data):
 				var always_trigger = data.always_trigger_events.duplicate(true)
 				entries.append_array(always_trigger)
 			for j in entries:
-				if j.affected_country == "update":
-					j.affected_country = Log.update_country
 				button.tooltip += j.get_tooltip() + "\n"
 			if i.auto_select_after != -1:
 				button.auto_select_after = i.auto_select_after
