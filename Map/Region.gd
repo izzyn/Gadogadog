@@ -30,9 +30,10 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func input_event(node : Viewport, event : InputEvent, shapde_idx : int):
-	if event is InputEventMouseButton and event.is_pressed():
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		get_parent().region_pressed(self)
 	pass
+
 func _on_mouse_entered():
 	mouse_over = true
 	get_parent().hoverdict[self] = true
