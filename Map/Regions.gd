@@ -71,7 +71,8 @@ func selected_territory(region : Polygon2D):
 			ui.get_node("PanelContainer/HBoxContainer/TextureRect").texture = Log.buildings[i].icon
 			ui.get_node("PanelContainer/HBoxContainer/BuildingName").text = Log.buildings[i].name
 			ui.get_node("PanelContainer/HBoxContainer/Label2").text = str(region.buildings[i])
-			ui.get_node("PanelContainer2/Button").building_id = i
+			ui.get_node("PanelContainer2/EvilButton").building_id = i
+			ui.get_node("PanelContainer2/EvilButton").region_name = region.name
 	else:
 		build_button.visible = false
 	pass

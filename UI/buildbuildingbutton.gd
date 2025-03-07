@@ -1,6 +1,7 @@
 extends Button
 
 var building_id = ""
+var region_name = ""
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect("mouse_entered", tooltip)
@@ -22,8 +23,19 @@ func get_tooltip_string() -> String:
 	pass
 
 func tooltip():
-	
 	UiManager.create_tooltip(get_tooltip_string(), self)
+	pass
+
+func _pressed() -> void:
+	if !disabled:
+		for i in Log.buildings[building_id].cost:
+			CountryData.countries[CountryData.player_country_id].resources[i].amount - Log.buildings[building_id].cost[i]
+		var region = get_tree().root.get_node("Map/Node/%s" % region_name)
+		if building_id in region.buildings.keys():
+			region.buildings[building_id] += 1
+		else:
+			region.buildings[building_id] = 1
+		
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
