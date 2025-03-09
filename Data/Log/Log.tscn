@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cv4r78mnn162u"]
+[gd_scene load_steps=65 format=3 uid="uid://cv4r78mnn162u"]
 
 [ext_resource type="Script" path="res://Data/Log/Log.gd" id="1_6aln7"]
 [ext_resource type="Script" path="res://Data/Events/PopupData.gd" id="2_87bku"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://l80bv6uiigpr" path="res://Assets/entrepreneur-computer-man-office-preview.jpg" id="18_mmfxv"]
 [ext_resource type="Script" path="res://Data/Regions/Building.gd" id="20_hi1cq"]
 [ext_resource type="Texture2D" uid="uid://k7w4nr40dbf5" path="res://Assets/Factory.svg" id="20_mdyhn"]
+[ext_resource type="Script" path="res://Data/RegionData.gd" id="23_0uuye"]
 
 [sub_resource type="Resource" id="Resource_ljpc6"]
 script = ExtResource("8_1q2he")
@@ -239,9 +240,76 @@ income = {}
 upkeep = {}
 modifiers = {}
 
+[sub_resource type="Resource" id="Resource_lhf7q"]
+script = ExtResource("23_0uuye")
+neighbours = []
+owning_country = "holyland"
+max_infra = 0
+max_buildings = 0
+buildings = {}
+
+[sub_resource type="Resource" id="Resource_fkpjn"]
+script = ExtResource("23_0uuye")
+neighbours = []
+owning_country = "holyland"
+max_infra = 0
+max_buildings = 0
+buildings = {}
+
+[sub_resource type="Resource" id="Resource_njebk"]
+script = ExtResource("23_0uuye")
+neighbours = []
+owning_country = "holyland"
+max_infra = 0
+max_buildings = 0
+buildings = {}
+
+[sub_resource type="Resource" id="Resource_jil24"]
+script = ExtResource("23_0uuye")
+neighbours = []
+owning_country = "swirlers"
+max_infra = 0
+max_buildings = 0
+buildings = {}
+
+[sub_resource type="Resource" id="Resource_6ypse"]
+script = ExtResource("23_0uuye")
+neighbours = []
+owning_country = "swirlers"
+max_infra = 0
+max_buildings = 0
+buildings = {}
+
+[sub_resource type="Resource" id="Resource_86jm8"]
+script = ExtResource("23_0uuye")
+neighbours = []
+owning_country = "swirlers"
+max_infra = 0
+max_buildings = 0
+buildings = {
+"commercial": 1
+}
+
+[sub_resource type="Resource" id="Resource_675xy"]
+script = ExtResource("23_0uuye")
+neighbours = []
+owning_country = "swirlers"
+max_infra = 0
+max_buildings = 0
+buildings = {}
+
 [node name="Log" type="Node"]
 script = ExtResource("1_6aln7")
 possible_events = Array[ExtResource("2_87bku")]([SubResource("Resource_q3k4o"), SubResource("Resource_sybl5"), SubResource("Resource_hrobc")])
 buildings = {
 "commercial": SubResource("Resource_cdnl7")
+}
+regions = {
+"Destitution City": SubResource("Resource_675xy"),
+"Mahltah": SubResource("Resource_86jm8"),
+"Prosperity City": SubResource("Resource_6ypse"),
+"Shalestown": SubResource("Resource_fkpjn"),
+"Shallowlava": SubResource("Resource_njebk"),
+"Shobeltown": SubResource("Resource_jil24"),
+"Valleyville": SubResource("Resource_lhf7q")
 }

@@ -13,6 +13,9 @@ var month_days = [31,28,31,30,31,30,31,31,30,31,30,31]
 var buildings : Dictionary
 
 @export
+var regions : Dictionary
+
+@export
 var start_day : int 
 
 var update_country : String

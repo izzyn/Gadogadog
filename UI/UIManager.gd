@@ -5,6 +5,8 @@ extends CanvasLayer
 func _ready() -> void:
 	pass # Replace with function body.
 
+signal update_ui
+
 var last_caller : Node = null
 func create_popup(data : Popup_Data):
 	var popup = get_node("EventPopup").duplicate()

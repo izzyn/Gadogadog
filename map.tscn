@@ -20,37 +20,37 @@ font_size = 18
 [sub_resource type="LabelSettings" id="LabelSettings_g7wi8"]
 font_size = 18
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o2u52"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g28ys"]
 resource_local_to_scene = true
 shader = ExtResource("3_m8o2a")
 shader_parameter/weight = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3d6is"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xbr5t"]
 resource_local_to_scene = true
 shader = ExtResource("3_m8o2a")
 shader_parameter/weight = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_okqkf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_envrv"]
 resource_local_to_scene = true
 shader = ExtResource("3_m8o2a")
 shader_parameter/weight = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0gtg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xg60k"]
 resource_local_to_scene = true
 shader = ExtResource("3_m8o2a")
 shader_parameter/weight = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ey0sb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2omi"]
 resource_local_to_scene = true
 shader = ExtResource("3_m8o2a")
 shader_parameter/weight = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ids5b"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sghad"]
 resource_local_to_scene = true
 shader = ExtResource("3_m8o2a")
 shader_parameter/weight = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nxxes"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4r372"]
 resource_local_to_scene = true
 shader = ExtResource("3_m8o2a")
 shader_parameter/weight = 1.0
@@ -237,36 +237,26 @@ layout_mode = 2
 position = Vector2(-248.141, -232.587)
 scale = Vector2(6.90671, 6.90671)
 
-[node name="Region" parent="Node" index="0"]
-material = SubResource("ShaderMaterial_o2u52")
-owning_country = "swirlers"
-buildings = {
-"commercial": 10
-}
+[node name="Valleyville" parent="Node" index="0"]
+material = SubResource("ShaderMaterial_g28ys")
 
-[node name="@Polygon2D@3" parent="Node" index="1"]
-material = SubResource("ShaderMaterial_3d6is")
-owning_country = "holyland"
+[node name="Shalestown" parent="Node" index="1"]
+material = SubResource("ShaderMaterial_xbr5t")
 
-[node name="@Polygon2D@4" parent="Node" index="2"]
-material = SubResource("ShaderMaterial_okqkf")
-owning_country = "holyland"
+[node name="Shallowlava" parent="Node" index="2"]
+material = SubResource("ShaderMaterial_envrv")
 
-[node name="@Polygon2D@5" parent="Node" index="3"]
-material = SubResource("ShaderMaterial_e0gtg")
-owning_country = "holyland"
+[node name="Shobeltown" parent="Node" index="3"]
+material = SubResource("ShaderMaterial_xg60k")
 
-[node name="@Polygon2D@6" parent="Node" index="4"]
-material = SubResource("ShaderMaterial_ey0sb")
-owning_country = "holyland"
+[node name="Mahltah" parent="Node" index="4"]
+material = SubResource("ShaderMaterial_f2omi")
 
-[node name="@Polygon2D@7" parent="Node" index="5"]
-material = SubResource("ShaderMaterial_ids5b")
-owning_country = "holyland"
+[node name="Prosperity City" parent="Node" index="5"]
+material = SubResource("ShaderMaterial_sghad")
 
-[node name="@Polygon2D@8" parent="Node" index="6"]
-material = SubResource("ShaderMaterial_nxxes")
-owning_country = "holyland"
+[node name="Destitution City" parent="Node" index="6"]
+material = SubResource("ShaderMaterial_4r372")
 
 [connection signal="mouse_entered" from="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" to="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" method="mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" to="CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MoneyUI" method="mouse_exited"]

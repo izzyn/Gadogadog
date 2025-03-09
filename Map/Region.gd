@@ -1,25 +1,6 @@
 extends Polygon2D
 
-@export
-var neighbours : Array = [];
-@export
-var region_name : String = ""
 
-@export
-var owning_country : String
-
-var mouse_over = false;
-
-var _stability
-
-@export
-var max_infra : int
-
-@export
-var max_buildings : int
-
-@export
-var buildings : Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,16 +16,14 @@ func input_event(node : Viewport, event : InputEvent, shapde_idx : int):
 	pass
 
 func _on_mouse_entered():
-	mouse_over = true
 	get_parent().hoverdict[self] = true
 	pass
 
 func _on_mouse_exited():
-	mouse_over = false
 	get_parent().hoverdict[self] = false
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	color = CountryData.countries[owning_country].color
+	color = CountryData.countries[Log.regions[name].owning_country].color
 	pass

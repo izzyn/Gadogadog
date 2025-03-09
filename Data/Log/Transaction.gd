@@ -9,10 +9,12 @@ var amount : int
 
 func enact():
 	affected_country.fetch().resources[resource_type].amount += amount
+	UiManager.update_ui.emit()
 	pass
 	
 func revoke():
 	affected_country.fetch().resources[resource_type].amount -= amount
+	UiManager.update_ui.emit()
 	pass
 
 func get_tooltip():
