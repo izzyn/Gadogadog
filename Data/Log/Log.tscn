@@ -240,10 +240,28 @@ income = {}
 upkeep = {}
 modifiers = {}
 
-[sub_resource type="Resource" id="Resource_lhf7q"]
+[sub_resource type="Resource" id="Resource_675xy"]
 script = ExtResource("23_0uuye")
 neighbours = []
-owning_country = "holyland"
+owning_country = "swirlers"
+max_infra = 0
+max_buildings = 0
+buildings = {}
+
+[sub_resource type="Resource" id="Resource_86jm8"]
+script = ExtResource("23_0uuye")
+neighbours = []
+owning_country = "swirlers"
+max_infra = 0
+max_buildings = 0
+buildings = {
+"commercial": 1
+}
+
+[sub_resource type="Resource" id="Resource_6ypse"]
+script = ExtResource("23_0uuye")
+neighbours = []
+owning_country = "swirlers"
 max_infra = 0
 max_buildings = 0
 buildings = {}
@@ -272,28 +290,10 @@ max_infra = 0
 max_buildings = 0
 buildings = {}
 
-[sub_resource type="Resource" id="Resource_6ypse"]
+[sub_resource type="Resource" id="Resource_lhf7q"]
 script = ExtResource("23_0uuye")
 neighbours = []
-owning_country = "swirlers"
-max_infra = 0
-max_buildings = 0
-buildings = {}
-
-[sub_resource type="Resource" id="Resource_86jm8"]
-script = ExtResource("23_0uuye")
-neighbours = []
-owning_country = "swirlers"
-max_infra = 0
-max_buildings = 0
-buildings = {
-"commercial": 1
-}
-
-[sub_resource type="Resource" id="Resource_675xy"]
-script = ExtResource("23_0uuye")
-neighbours = []
-owning_country = "swirlers"
+owning_country = "holyland"
 max_infra = 0
 max_buildings = 0
 buildings = {}

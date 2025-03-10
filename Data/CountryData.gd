@@ -4,10 +4,7 @@ extends Node
 var countries : Dictionary
 
 @export
-var player_country_id : String:
-	set(value):
-		countries["current"] = countries[value]
-		player_country_id = value
+var player_country_id : String
 
 
 

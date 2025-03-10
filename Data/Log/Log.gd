@@ -35,7 +35,6 @@ func _ready() -> void:
 func append_log(event : Log_Entry) -> void:
 	event.enact()
 	log.append(event)
-	get_tree().root.get_node("Map/CanvasLayer/Control/MarginContainer/HBoxContainer2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer").update_bar()
 	pass
 
 func update_time():

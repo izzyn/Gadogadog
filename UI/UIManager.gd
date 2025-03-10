@@ -14,7 +14,6 @@ func create_popup(data : Popup_Data):
 	var body = popup.get_node("VBoxContainer2/MarginContainer/VBoxContainer")
 	popup.get_node("VBoxContainer2/TextureRect").texture = data.image
 	body.get_node("Label2").text = data.flavour_text
-	data._has_appeared = true
 	for i in data.options:
 		if i.available():
 			var button = preload("res://UI/PopupButton.tscn").instantiate()
