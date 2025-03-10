@@ -41,6 +41,8 @@ func update_time():
 	var timelog = Update_Day_Log.new()
 	append_log(timelog)
 	for i in CountryData.countries:
+		if i == "world" or i == "current":
+			continue
 		var newlog = Time_Update_Log.new()
 		var fetchcountry = Fetch_Country.new()
 		fetchcountry.country_id = i
@@ -90,3 +92,34 @@ func display_time(days) -> String:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func update_variables(obj: Resource, visited: Dictionary = {}):
+	if visited.has(obj):
+		return
+	visited[obj] = true
+
+	# 1. Run this resource's initialization
+	if obj is Fetch_Country:
+		obj.duplicate()
+		obj._init()
+
+	for prop in obj.get_property_list():
+		var prop_name = prop["name"]
+		if _is_stored_property(prop):
+			var value = obj.get(prop_name)
+			_handle_value_recursively(value, visited)
+
+func _handle_value_recursively(value, visited: Dictionary):
+	if value is Resource:
+		if not visited.has(value):
+			update_variables(value, visited)
+	elif value is Array:
+		for item in value:
+			_handle_value_recursively(item, visited)
+	elif value is Dictionary:
+		for key in value:
+			_handle_value_recursively(value[key], visited)
+
+func _is_stored_property(prop: Dictionary) -> bool:
+	# Check if the property is stored (not a temporary or script variable)
+	return (prop["usage"] & PROPERTY_USAGE_STORAGE) != 0

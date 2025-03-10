@@ -14,14 +14,15 @@ func enact():
 	var events = Log.possible_events
 	
 	for i in events:
-		var event = i.duplicate(true)
-		event._process_properties_recursively(event, {})
 		var condition = true
-		if event.condition:
-			condition = event.condition.check()
-		if condition and CountryData.player_country_id == affected_country.country_id and !(event.appears_once and event._has_appeared):
-			print("C")
+		if i.condition:
+			var condition_dupe = i.condition.duplicate(true)
+			Log.update_variables(condition_dupe)
+			condition = condition_dupe.check()
+		if condition and CountryData.player_country_id == affected_country.country_id and !(i.appears_once and i._has_appeared):
 			i._has_appeared = true
+			var event = i.duplicate(true)
+			Log.update_variables(event)
 			UiManager.create_popup(event)
 	pass
 

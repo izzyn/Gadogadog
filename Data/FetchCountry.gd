@@ -6,9 +6,8 @@ class_name Fetch_Country
 var country_id : String
 
 func _init() -> void:
-	print("A")
 	if country_id == "current" and Log.update_country != "":
-		print("B")
+		print(Log.update_country)
 		country_id = Log.update_country
 	pass
 

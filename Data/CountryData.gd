@@ -4,8 +4,10 @@ extends Node
 var countries : Dictionary
 
 @export
-var player_country_id : String
-
+var player_country_id : String:
+	set(value):
+			countries["current"] = countries[value]
+			player_country_id = value
 
 
 # Called when the node enters the scene tree for the first time.

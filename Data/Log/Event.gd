@@ -8,7 +8,8 @@ var ID : String
 var event_name : String
 func enact():
 	if ID in Log.completed_events.keys():
-		Log.completed_events[ID].append(affected_country.country_id)
+		if affected_country.country_id not in Log.completed_events[ID]:
+			Log.completed_events[ID].append(affected_country.country_id)
 	else:
 		Log.completed_events[ID] = [affected_country.country_id]
 	pass
