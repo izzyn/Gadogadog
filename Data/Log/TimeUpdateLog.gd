@@ -17,11 +17,13 @@ func enact():
 		var condition = true
 		if i.condition:
 			var condition_dupe = i.condition.duplicate(true)
+			condition_dupe = Log.true_deep_copy(condition_dupe)
 			Log.update_variables(condition_dupe)
 			condition = condition_dupe.check()
 		if condition and CountryData.player_country_id == affected_country.country_id and !(i.appears_once and i._has_appeared):
 			i._has_appeared = true
 			var event = i.duplicate(true)
+			event = Log.true_deep_copy(event)
 			Log.update_variables(event)
 			UiManager.create_popup(event)
 	pass

@@ -300,7 +300,6 @@ buildings = {}
 
 [node name="Log" type="Node"]
 script = ExtResource("1_6aln7")
-world_seed = null
 possible_events = Array[ExtResource("2_87bku")]([SubResource("Resource_q3k4o"), SubResource("Resource_sybl5"), SubResource("Resource_hrobc")])
 buildings = {
 "commercial": SubResource("Resource_cdnl7")
@@ -314,4 +313,3 @@ regions = {
 "Shobeltown": SubResource("Resource_jil24"),
 "Valleyville": SubResource("Resource_lhf7q")
 }
-start_day = null

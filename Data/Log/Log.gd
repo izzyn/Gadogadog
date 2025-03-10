@@ -41,7 +41,7 @@ func update_time():
 	var timelog = Update_Day_Log.new()
 	append_log(timelog)
 	for i in CountryData.countries:
-		if i == "world" or i == "current":
+		if i == "world" or i == "current" or i == "update":
 			continue
 		var newlog = Time_Update_Log.new()
 		var fetchcountry = Fetch_Country.new()
@@ -93,6 +93,44 @@ func display_time(days) -> String:
 func _process(delta: float) -> void:
 	pass
 
+func true_deep_copy(obj: Resource, visited : Dictionary = {}) -> Resource:
+	#if visited.has(obj):
+	#	return
+	visited[obj] = true
+	for prop in obj.get_property_list():
+		var prop_name = prop["name"]
+		if _is_stored_property(prop):
+			var value = obj.get(prop_name)
+			var setvalue = handle_deep_copy_property(value, visited)
+			obj.set(prop_name, setvalue)
+	return obj
+	pass
+
+func handle_deep_copy_property(value, visited : Dictionary = {}):
+	if value is Resource:
+		return true_deep_copy(value, visited)
+	elif value is Array:
+		for i in range(value.size()):
+			if value[i] is Resource:
+				var newres = value[i].duplicate(true)
+				newres = true_deep_copy(newres, visited)
+				value[i] = newres
+			else:
+				value[i] = handle_deep_copy_property(i, visited)
+		return value
+	elif value is Dictionary:
+		for key in value:
+			if value[key] is Resource:
+				var newres = value[key].duplicate(true)
+				newres = true_deep_copy(newres, visited)
+				value[key] = newres
+			else:
+				value[key] = handle_deep_copy_property(value[key], visited)
+		return value
+	else:
+		return value
+	pass
+
 func update_variables(obj: Resource, visited: Dictionary = {}):
 	if visited.has(obj):
 		return
@@ -100,8 +138,7 @@ func update_variables(obj: Resource, visited: Dictionary = {}):
 
 	# 1. Run this resource's initialization
 	if obj is Fetch_Country:
-		obj.duplicate()
-		obj._init()
+		obj.setvariable()
 
 	for prop in obj.get_property_list():
 		var prop_name = prop["name"]
