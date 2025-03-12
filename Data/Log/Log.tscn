@@ -1,28 +1,29 @@
-[gd_scene load_steps=65 format=3 uid="uid://cv4r78mnn162u"]
+[gd_scene load_steps=68 format=3 uid="uid://cv4r78mnn162u"]
 
-[ext_resource type="Script" path="res://Data/Log/Log.gd" id="1_6aln7"]
-[ext_resource type="Script" path="res://Data/Events/PopupData.gd" id="2_87bku"]
+[ext_resource type="Script" uid="uid://bfwvp7j4x22ah" path="res://Data/Log/Log.gd" id="1_6aln7"]
+[ext_resource type="Script" uid="uid://dyl36amjj01q3" path="res://Data/Events/PopupData.gd" id="2_87bku"]
 [ext_resource type="Texture2D" uid="uid://dtut83he6mu7b" path="res://Assets/YW025183V_A-volcano-Mount-Etna-erupting-at-night.jpg" id="3_h5d1i"]
-[ext_resource type="Script" path="res://Data/Events/PopupOption.gd" id="3_msoth"]
-[ext_resource type="Script" path="res://Data/Log/TemporaryLog.gd" id="4_rsavp"]
-[ext_resource type="Script" path="res://Data/Log/Transaction.gd" id="5_faqla"]
-[ext_resource type="Script" path="res://Data/Log/LogEntry.gd" id="5_jd50d"]
-[ext_resource type="Script" path="res://Data/FetchData/CountryResource.gd" id="6_6srmp"]
-[ext_resource type="Script" path="res://Data/Conditions/ConditionResource.gd" id="6_qv0xi"]
-[ext_resource type="Script" path="res://Data/Log/Event.gd" id="7_gjxs3"]
-[ext_resource type="Script" path="res://Data/FetchData/Constant.gd" id="7_i6r8a"]
-[ext_resource type="Script" path="res://Data/FetchCountry.gd" id="8_1q2he"]
-[ext_resource type="Script" path="res://Data/Conditions/Condition.gd" id="12_b2vjt"]
-[ext_resource type="Script" path="res://Data/Conditions/ConditionRandom.gd" id="13_4pgd2"]
-[ext_resource type="Script" path="res://Data/Conditions/ConditionTime.gd" id="14_nt3q6"]
-[ext_resource type="Script" path="res://Data/Conditions/ConditionAll.gd" id="15_6jepd"]
-[ext_resource type="Script" path="res://Data/Conditions/ConditionCountry.gd" id="15_wma1i"]
+[ext_resource type="Script" uid="uid://b38h7fjpwdesl" path="res://Data/Events/PopupOption.gd" id="3_msoth"]
+[ext_resource type="Script" uid="uid://bpb76k1umw6yd" path="res://Data/Log/TemporaryLog.gd" id="4_rsavp"]
+[ext_resource type="Script" uid="uid://mx7ovroos1vh" path="res://Data/Log/Transaction.gd" id="5_faqla"]
+[ext_resource type="Script" uid="uid://dro0mrwdgn1qs" path="res://Data/Log/LogEntry.gd" id="5_jd50d"]
+[ext_resource type="Script" uid="uid://byq7dq3rance" path="res://Data/FetchData/CountryResource.gd" id="6_6srmp"]
+[ext_resource type="Script" uid="uid://m3kf1qnmmvvk" path="res://Data/Conditions/ConditionResource.gd" id="6_qv0xi"]
+[ext_resource type="Script" uid="uid://qsosl5tc2cs3" path="res://Data/Log/Event.gd" id="7_gjxs3"]
+[ext_resource type="Script" uid="uid://dkj2tgva2v555" path="res://Data/FetchData/Constant.gd" id="7_i6r8a"]
+[ext_resource type="Script" uid="uid://drmu0fjtl13k" path="res://Data/Conditions/ConditionOwnRegion.gd" id="7_krdas"]
+[ext_resource type="Script" uid="uid://6jg8a7j6w1cf" path="res://Data/FetchCountry.gd" id="8_1q2he"]
+[ext_resource type="Script" uid="uid://cgav0qjqh0kmc" path="res://Data/Conditions/Condition.gd" id="12_b2vjt"]
+[ext_resource type="Script" uid="uid://bvhy54ffwwk05" path="res://Data/Conditions/ConditionRandom.gd" id="13_4pgd2"]
+[ext_resource type="Script" uid="uid://rdcmao5bj7oj" path="res://Data/Conditions/ConditionTime.gd" id="14_nt3q6"]
+[ext_resource type="Script" uid="uid://dhbmdxofhgerc" path="res://Data/Conditions/ConditionAll.gd" id="15_6jepd"]
+[ext_resource type="Script" uid="uid://dgf122fgp0plm" path="res://Data/Conditions/ConditionCountry.gd" id="15_wma1i"]
 [ext_resource type="Texture2D" uid="uid://dctb6ccop2kca" path="res://Assets/pexels-photo-3363426.jpeg" id="16_rvfsr"]
-[ext_resource type="Script" path="res://Data/Conditions/ConditionEvent.gd" id="17_tl0vm"]
+[ext_resource type="Script" uid="uid://dfnpndx0ylcor" path="res://Data/Conditions/ConditionEvent.gd" id="17_tl0vm"]
 [ext_resource type="Texture2D" uid="uid://l80bv6uiigpr" path="res://Assets/entrepreneur-computer-man-office-preview.jpg" id="18_mmfxv"]
-[ext_resource type="Script" path="res://Data/Regions/Building.gd" id="20_hi1cq"]
+[ext_resource type="Script" uid="uid://waf0aw7us24r" path="res://Data/Regions/Building.gd" id="20_hi1cq"]
 [ext_resource type="Texture2D" uid="uid://k7w4nr40dbf5" path="res://Assets/Factory.svg" id="20_mdyhn"]
-[ext_resource type="Script" path="res://Data/RegionData.gd" id="23_0uuye"]
+[ext_resource type="Script" uid="uid://bsxidil3u2lrh" path="res://Data/RegionData.gd" id="23_0uuye"]
 
 [sub_resource type="Resource" id="Resource_ljpc6"]
 script = ExtResource("8_1q2he")
@@ -38,6 +39,18 @@ affected_country = SubResource("Resource_ljpc6")
 script = ExtResource("4_rsavp")
 duration = 5
 event = SubResource("Resource_djh8p")
+
+[sub_resource type="Resource" id="Resource_ed7m4"]
+script = ExtResource("8_1q2he")
+country_id = "current"
+metadata/_custom_type_script = "uid://6jg8a7j6w1cf"
+
+[sub_resource type="Resource" id="Resource_khc5w"]
+script = ExtResource("7_krdas")
+region_id = "Shalestown"
+country_id = SubResource("Resource_ed7m4")
+display = false
+metadata/_custom_type_script = "uid://drmu0fjtl13k"
 
 [sub_resource type="Resource" id="Resource_s6eou"]
 script = ExtResource("8_1q2he")
@@ -103,6 +116,7 @@ flavour_text = "The children don't want to work"
 always_trigger_events = Array[ExtResource("5_jd50d")]([SubResource("Resource_j6d0x")])
 global = false
 appears_once = true
+condition = SubResource("Resource_khc5w")
 options = Array[ExtResource("3_msoth")]([SubResource("Resource_j5lqq"), SubResource("Resource_6xrmt")])
 
 [sub_resource type="Resource" id="Resource_mtjbg"]
@@ -313,3 +327,4 @@ regions = {
 "Shobeltown": SubResource("Resource_jil24"),
 "Valleyville": SubResource("Resource_lhf7q")
 }
+start_day = 80956

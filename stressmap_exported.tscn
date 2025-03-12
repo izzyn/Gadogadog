@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://rlcra6dymgbr"]
 
-[ext_resource type="Script" path="res://Map/Regions.gd" id="1_hy1gt"]
+[ext_resource type="Script" uid="uid://c7lliiryrbbga" path="res://Map/Regions.gd" id="1_hy1gt"]
 [ext_resource type="PackedScene" uid="uid://b6rrv46b6l0ww" path="res://Map/Region.tscn" id="2_tdqhw"]
-[ext_resource type="Shader" path="res://Region.gdshader" id="3_oueen"]
+[ext_resource type="Shader" uid="uid://cr1fj8kmmj5gf" path="res://Region.gdshader" id="3_oueen"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r6a00"]
 resource_local_to_scene = true

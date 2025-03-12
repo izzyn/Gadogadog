@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://kn6f4j0d3cag"]
 
 [ext_resource type="Texture2D" uid="uid://k7w4nr40dbf5" path="res://Assets/Factory.svg" id="1_dog14"]
-[ext_resource type="Script" path="res://UI/buildbuildingbutton.gd" id="2_ecbfr"]
+[ext_resource type="Script" uid="uid://dr7r6wxwnlass" path="res://UI/buildbuildingbutton.gd" id="2_ecbfr"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
 offset_right = 40.0

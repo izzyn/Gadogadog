@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ch6gh37xfxvph"]
 
-[ext_resource type="Script" path="res://UI/DraggableWindow.gd" id="1_ex2li"]
+[ext_resource type="Script" uid="uid://b1kiqvrqi8bp1" path="res://UI/DraggableWindow.gd" id="1_ex2li"]
 [ext_resource type="Texture2D" uid="uid://dtut83he6mu7b" path="res://Assets/YW025183V_A-volcano-Mount-Etna-erupting-at-night.jpg" id="1_j5k5q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ueit"]

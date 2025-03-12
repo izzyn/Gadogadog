@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bc4cue2a2i7t7"]
 
-[ext_resource type="Script" path="res://MapConverter/map_import.gd" id="1_5xwoo"]
+[ext_resource type="Script" uid="uid://cydqnvtr0wi8q" path="res://MapConverter/map_import.gd" id="1_5xwoo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4yunr"]
 font_size = 32

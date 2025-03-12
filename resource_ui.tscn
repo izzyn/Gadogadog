@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwe6opvhx2u8c"]
 
 [ext_resource type="Texture2D" uid="uid://bruuaxu072gfv" path="res://Assets/money.svg" id="1_3meov"]
-[ext_resource type="Script" path="res://resource_ui.gd" id="1_bt0rl"]
+[ext_resource type="Script" uid="uid://m2u12mh58dt0" path="res://resource_ui.gd" id="1_bt0rl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_doob2"]
 font_size = 24

@@ -30,6 +30,7 @@ signal update_variable(variable, value)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	current_day = start_day
 	pass # Replace with function body.
 
 func append_log(event : Log_Entry) -> void:

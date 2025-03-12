@@ -1,15 +1,15 @@
 [gd_scene load_steps=21 format=3 uid="uid://cyu0ytw6wljip"]
 
-[ext_resource type="Script" path="res://map.gd" id="1_rbels"]
-[ext_resource type="Shader" path="res://Region.gdshader" id="3_m8o2a"]
+[ext_resource type="Script" uid="uid://bckjopvj31h18" path="res://map.gd" id="1_rbels"]
+[ext_resource type="Shader" uid="uid://cr1fj8kmmj5gf" path="res://Region.gdshader" id="3_m8o2a"]
 [ext_resource type="Texture2D" uid="uid://4qwaqrw603p6" path="res://Assets/holylogo.svg" id="3_nqo17"]
-[ext_resource type="Script" path="res://ResourceBar.gd" id="7_gx6ao"]
-[ext_resource type="Script" path="res://CountryButton.gd" id="7_s7u3g"]
+[ext_resource type="Script" uid="uid://vxoq5ifxs0q8" path="res://ResourceBar.gd" id="7_gx6ao"]
+[ext_resource type="Script" uid="uid://bot1akig14dgi" path="res://CountryButton.gd" id="7_s7u3g"]
 [ext_resource type="PackedScene" uid="uid://dwe6opvhx2u8c" path="res://resource_ui.tscn" id="7_u6jg7"]
-[ext_resource type="Script" path="res://newbuilding_menu.gd" id="8_we8ma"]
-[ext_resource type="Script" path="res://UI/TimeButton.gd" id="9_4s4di"]
+[ext_resource type="Script" uid="uid://dolspmgk8bcmx" path="res://newbuilding_menu.gd" id="8_we8ma"]
+[ext_resource type="Script" uid="uid://bxffxq4bn5a0b" path="res://UI/TimeButton.gd" id="9_4s4di"]
 [ext_resource type="PackedScene" uid="uid://bwj5f0h3peums" path="res://testmap_exported.tscn" id="9_uglrw"]
-[ext_resource type="Script" path="res://UI/time_display.gd" id="10_m3jtr"]
+[ext_resource type="Script" uid="uid://cq6byofig41fh" path="res://UI/time_display.gd" id="10_m3jtr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4hkhu"]
 font_size = 32
@@ -56,7 +56,6 @@ shader = ExtResource("3_m8o2a")
 shader_parameter/weight = 1.0
 
 [node name="Map" type="Node2D"]
-position = Vector2(0.141388, 0.587173)
 script = ExtResource("1_rbels")
 
 [node name="Camera2D" type="Camera2D" parent="."]

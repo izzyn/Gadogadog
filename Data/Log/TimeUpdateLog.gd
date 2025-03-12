@@ -28,6 +28,13 @@ func enact():
 			UiManager.create_popup(event)
 	pass
 
+func update_income():
+	
+	pass
+
+func update_regions():
+	
+	pass
 func revoke():
 	if day == 1:
 		for i in affected_country.fetch().resources:
