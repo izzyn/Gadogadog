@@ -6,7 +6,7 @@ var global : bool
 
 ##Country to check for event, if global is enabled this does nothing.
 @export
-var countryid : Fetch_Country 
+var countryid : String = "$Country_ID"
 
 @export
 var eventid : String
@@ -20,7 +20,7 @@ func check() -> bool:
 	if Log.completed_events.has(eventid):
 		if global:
 			return not inverted
-		else: if countryid.country_id in Log.completed_events[eventid]:
+		else: if countryid in Log.completed_events[eventid]:
 			return not inverted
 	return inverted
 	pass

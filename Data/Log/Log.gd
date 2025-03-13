@@ -45,9 +45,7 @@ func update_time():
 		if i == "world" or i == "current" or i == "update":
 			continue
 		var newlog = Time_Update_Log.new()
-		var fetchcountry = Fetch_Country.new()
-		fetchcountry.country_id = i
-		newlog.affected_country = fetchcountry
+		newlog.affected_country = i
 		newlog.day = current_day
 		append_log(newlog)
 	time_updated.emit(current_day)
@@ -137,14 +135,18 @@ func update_variables(obj: Resource, visited: Dictionary = {}):
 		return
 	visited[obj] = true
 
-	# 1. Run this resource's initialization
-	if obj is Fetch_Country:
-		obj.setvariable()
-
 	for prop in obj.get_property_list():
 		var prop_name = prop["name"]
 		if _is_stored_property(prop):
+			
 			var value = obj.get(prop_name)
+			if (prop["usage"] & PROPERTY_USAGE_SCRIPT_VARIABLE) != 0 and value is String:
+				var countryid = Log.update_country
+				var countryname = CountryData.countries[countryid].name
+				var dict = {"$Country_ID":countryid, "$Country_Name":countryname}
+				for key in dict:
+					value = value.replace(key, dict[key])
+				obj.set(prop_name, value)
 			_handle_value_recursively(value, visited)
 
 func _handle_value_recursively(value, visited: Dictionary):

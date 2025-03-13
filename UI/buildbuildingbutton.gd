@@ -32,15 +32,13 @@ func _pressed() -> void:
 		for i in Log.buildings[building_id].cost:
 			var transaction = Transaction.new()
 			transaction.amount = -Log.buildings[building_id].cost[i]
-			transaction.affected_country = Fetch_Country.new()
-			transaction.affected_country.country_id = CountryData.player_country_id
+			transaction.affected_country = CountryData.player_country_id
 			transaction.resource_type = i
 			Log.append_log(transaction)
 		var buildinglog = Build_Building_Log.new()
 		buildinglog.amount = 1
 		buildinglog.building_id = building_id
-		buildinglog.affected_country = Fetch_Country.new()
-		buildinglog.affected_country.country_id = CountryData.player_country_id
+		buildinglog.affected_country = CountryData.player_country_id
 		buildinglog.region = region_name
 		Log.append_log(buildinglog)
 		var region = get_tree().root.get_node("Map/Node/%s" % region_name)

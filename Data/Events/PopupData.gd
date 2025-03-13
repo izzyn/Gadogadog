@@ -2,6 +2,9 @@ extends Resource
 class_name Popup_Data
 
 @export
+var Region_Event : bool 
+
+@export
 var ID : String
 
 @export

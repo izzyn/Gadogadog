@@ -2,7 +2,7 @@ extends Resource
 class_name Log_Entry
 
 @export
-var affected_country : Fetch_Country
+var affected_country : String = "$Country_ID"
 
 func enact():
 	print("Not Implemented")

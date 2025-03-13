@@ -8,12 +8,12 @@ var resource_type : String
 var amount : int 
 
 func enact():
-	affected_country.fetch().resources[resource_type].amount += amount
+	CountryData.countries[affected_country].resources[resource_type].amount += amount
 	UiManager.update_ui.emit()
 	pass
 	
 func revoke():
-	affected_country.fetch().resources[resource_type].amount -= amount
+	CountryData.countries[affected_country].resources[resource_type].amount -= amount
 	UiManager.update_ui.emit()
 	pass
 
@@ -25,5 +25,5 @@ func get_tooltip():
 		adjective = "loses "
 	else:
 		amountstr = "[color=green]" + amountstr + "[/color]"
-	return affected_country.fetch().name + " " + adjective + ("[img=20]%s[/img]" % affected_country.fetch().resources[resource_type].icon.resource_path) + amountstr
+	return CountryData.countries[affected_country].name + " " + adjective + ("[img=20]%s[/img]" % CountryData.countries[affected_country].resources[resource_type].icon.resource_path) + amountstr
 	pass
