@@ -18,12 +18,15 @@ func create_popup(data : Popup_Data):
 		if i.available():
 			var button = preload("res://UI/PopupButton.tscn").instantiate()
 			button.text = i.text
-			var entries = i.entries.duplicate(true)
+			var entries : Array[Selection_Log] = i.entries
 			if data.always_trigger_events:
-				var always_trigger = data.always_trigger_events.duplicate(true)
+				var always_trigger = data.always_trigger_events
 				entries.append_array(always_trigger)
-			for j in entries:
-				button.tooltip += j.get_tooltip() + "\n"
+			for j : Selection_Log in entries:
+				j._exported = j.selection.export_scope()
+				for k in j._exported:
+					for l in j.logs:
+						button.tooltip += l.get_tooltip(k) + "\n"
 			if i.auto_select_after != -1:
 				button.auto_select_after = i.auto_select_after
 				var calendar = Log.get_calendar(i.auto_select_after + Log.current_day)

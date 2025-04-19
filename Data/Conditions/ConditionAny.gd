@@ -4,9 +4,9 @@ class_name Condition_Any
 @export
 var conditions : Array[Condition]
 
-func check() -> bool:
+func check(who) -> bool:
 	for i in conditions:
-		if i.check():
+		if i.check(who):
 			return true
 	return false
 	pass

@@ -10,6 +10,8 @@ var possible_events : Array[Popup_Data]
 var month_days = [31,28,31,30,31,30,31,31,30,31,30,31]
 
 @export
+var political_decisions : Dictionary[String, Political_Action]
+@export
 var buildings : Dictionary
 
 @export
@@ -28,6 +30,7 @@ signal time_updated(day)
 
 signal update_variable(variable, value)
 
+var trigger : Array
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_day = start_day
@@ -48,7 +51,35 @@ func update_time():
 		newlog.affected_country = i
 		newlog.day = current_day
 		append_log(newlog)
+	for event in possible_events:
+		var trigger_dupe : Select = dupe_with_variables(event.trigger)
+		var trigger_arr = trigger_dupe.export_scope()
+		
+		if len(trigger_arr) > 0 and (!event.appears_once or (event.appears_once  and !event._has_appeared)):
+			if event.trigger_for_each:
+				for i in trigger_arr:
+					trigger = [i]
+					var trigger_for_dupe = dupe_with_variables(event.trigger_for).export_scope()
+					for j in trigger_for_dupe:
+						trigger_event(event, j)
+			else:
+				trigger = trigger_arr
+				var trigger_for_dupe = dupe_with_variables(event.trigger_for).export_scope()
+				for j in trigger_for_dupe:
+					trigger_event(event, j)
 	time_updated.emit(current_day)
+	pass
+
+func trigger_event(event : Popup_Data, for_who : String):
+	if for_who == CountryData.player_country_id:
+		var event_dupe : Popup_Data = dupe_with_variables(event)
+		event._has_appeared = true
+		for i in event_dupe.always_trigger_events:
+			i._exported = i.selection.export_scope()
+		for i in event_dupe.options:
+			for j in i.entries:
+				j._exported = j.selection.export_scope()
+		UiManager.create_popup(dupe_with_variables(event))
 	pass
 
 func get_calendar(total_days) -> Array[int]:
@@ -115,7 +146,7 @@ func handle_deep_copy_property(value, visited : Dictionary = {}):
 				newres = true_deep_copy(newres, visited)
 				value[i] = newres
 			else:
-				value[i] = handle_deep_copy_property(i, visited)
+				value[i] = handle_deep_copy_property(value[i], visited)
 		return value
 	elif value is Dictionary:
 		for key in value:
@@ -141,9 +172,19 @@ func update_variables(obj: Resource, visited: Dictionary = {}):
 			
 			var value = obj.get(prop_name)
 			if (prop["usage"] & PROPERTY_USAGE_SCRIPT_VARIABLE) != 0 and value is String:
-				var countryid = Log.update_country
+				var countryid = update_country
 				var countryname = CountryData.countries[countryid].name
-				var dict = {"$Country_ID":countryid, "$Country_Name":countryname}
+				var trigger_name = ""
+				for i in trigger:
+					if i in Log.regions.keys():
+						trigger_name += regions[i].name
+					if i in CountryData.countries.keys():
+						trigger_name += CountryData.countries[i].name
+					if trigger.find(i) != len(trigger) - 1:
+						trigger_name += ", "
+					elif trigger.find(i) != len(trigger) - 2:
+						trigger_name += " and "
+				var dict = {"$Country_ID":countryid, "$Country_Name":countryname, "$Trigger_Name":trigger_name}
 				for key in dict:
 					value = value.replace(key, dict[key])
 				obj.set(prop_name, value)
@@ -159,6 +200,11 @@ func _handle_value_recursively(value, visited: Dictionary):
 	elif value is Dictionary:
 		for key in value:
 			_handle_value_recursively(value[key], visited)
+
+func dupe_with_variables(value : Resource) -> Resource:
+	var dupe =true_deep_copy(value)
+	update_variables(dupe)
+	return dupe
 
 func _is_stored_property(prop: Dictionary) -> bool:
 	# Check if the property is stored (not a temporary or script variable)

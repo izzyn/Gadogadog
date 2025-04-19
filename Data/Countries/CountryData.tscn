@@ -28,6 +28,7 @@ name = "Holy holyland"
 logo = ExtResource("2_3hfo0")
 color = Color(0.870588, 0.721569, 0.305882, 1)
 unlocked_buildings = Array[String]([])
+available_decisions = Array[String]([])
 resources = {
 "money": SubResource("Resource_bgnjg"),
 "steel": SubResource("Resource_op33y")
@@ -51,6 +52,7 @@ name = "The Swirlers"
 logo = ExtResource("6_q4fct")
 color = Color(1, 0.352941, 0.352941, 1)
 unlocked_buildings = Array[String]([])
+available_decisions = Array[String]([])
 resources = {
 "money": SubResource("Resource_002si"),
 "steel": SubResource("Resource_2rhqk")
@@ -76,6 +78,7 @@ script = ExtResource("5_xl1gb")
 name = "world"
 color = Color(0, 0, 0, 1)
 unlocked_buildings = Array[String]([])
+available_decisions = Array[String]([])
 resources = {
 "day": SubResource("Resource_o8t0k"),
 "month": SubResource("Resource_y7n8w"),
@@ -89,4 +92,4 @@ countries = {
 "swirlers": SubResource("Resource_umh4p"),
 "world": SubResource("Resource_kc22w")
 }
-player_country_id = "swirlers"
+player_country_id = "holyland"

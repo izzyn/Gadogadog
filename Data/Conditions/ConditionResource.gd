@@ -6,24 +6,28 @@ enum Type {Equal_Greater_Than, Equal_Lesser_Than, Lesser_Than, Greater_Than, Equ
 var type : Type
 
 @export
-var resource_1 : Fetch_Data
+var resource_id : String
 
 @export
-var resource_2 : Fetch_Data
+var resource : Fetch_Data
 
-func check() -> bool:
+func check(who) -> bool:
+	var fetchresource = Country_Resource.new()
+	fetchresource.country_id = who
+	fetchresource.country_resource_id = resource_id
+	fetchresource.country_id
 	match type:
 		Type.Equal_Greater_Than:
-			return resource_1.fetch() >= resource_2.fetch()
+			return fetchresource.fetch() >= resource.fetch()
 		Type.Equal_Lesser_Than:
-			return resource_1.fetch() <= resource_2.fetch()
+			return fetchresource.fetch() <= resource.fetch()
 		Type.Lesser_Than:
-			return resource_1.fetch() < resource_2.fetch()
+			return fetchresource.fetch() < resource.fetch()
 		Type.Greater_Than:
-			return resource_1.fetch() <= resource_2.fetch()
+			return fetchresource.fetch() > resource.fetch()
 		Type.Equal:
-			return resource_1.fetch() == resource_2.fetch()
+			return fetchresource.fetch() == resource.fetch()
 		Type.Not_Equal:
-			return resource_1.fetch() != resource_2.fetch()
+			return fetchresource.fetch() != resource.fetch()
 	return false
 	pass

@@ -4,7 +4,7 @@ class_name Condition
 @export
 var display : bool
 
-func check() -> bool:
+func check(who) -> bool:
 	return false
 	pass
 

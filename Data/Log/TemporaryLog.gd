@@ -27,6 +27,6 @@ func revoke():
 		event.revoke()
 	pass
 
-func get_tooltip() -> String:
+func _get_tooltip(who) -> String:
 	return event.get_tooltip() + " for " + Log.display_time(duration)
 	pass

@@ -29,6 +29,6 @@ func revoke():
 	UiManager.update_ui.emit()
 	pass
 
-func get_tooltip() -> String:
+func get_tooltip(who = "") -> String:
 	return ""
 	pass

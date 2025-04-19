@@ -16,11 +16,11 @@ var eventid : String
 var inverted : bool
 
 
-func check() -> bool:
+func check(who) -> bool:
 	if Log.completed_events.has(eventid):
 		if global:
 			return not inverted
-		else: if countryid in Log.completed_events[eventid]:
+		else: if who in Log.completed_events[eventid]:
 			return not inverted
 	return inverted
 	pass

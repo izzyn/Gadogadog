@@ -7,10 +7,10 @@ var always_visible : bool
 
 ##If let empty, option is always available
 @export
-var condition : Condition
+var condition : Select
 
 @export
-var entries : Array[Log_Entry]
+var entries : Array[Selection_Log]
 
 @export
 var text : String
@@ -23,7 +23,7 @@ var _time_created : int
 
 func available() -> bool:
 	if condition:
-		return condition.check()
+		return len(condition.export_scope()) != 0
 	else:
 		return true
 	pass

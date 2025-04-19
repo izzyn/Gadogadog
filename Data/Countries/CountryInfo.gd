@@ -12,6 +12,9 @@ var color : Color
 
 @export
 var unlocked_buildings : Array[String]
+
+@export
+var available_decisions : Array[String]
 ##resources, is a dictionary of type Key: String -> Value: Resource_Type
 @export
 var resources : Dictionary = {

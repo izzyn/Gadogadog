@@ -22,6 +22,6 @@ func revoke():
 			Log.completed_events[ID].erase(affected_country)
 	pass
 
-func get_tooltip() -> String:
-	return CountryData.countries[affected_country].name + " gains the event: " + "[color=orange]\"" + event_name + "\"[/color]"
+func _get_tooltip(who) -> String:
+	return CountryData.countries[who].name + " gains the event: " + "[color=orange]\"" + event_name + "\"[/color]"
 	pass

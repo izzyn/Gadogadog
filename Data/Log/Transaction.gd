@@ -17,7 +17,7 @@ func revoke():
 	UiManager.update_ui.emit()
 	pass
 
-func get_tooltip():
+func _get_tooltip(who):
 	var adjective = "gains "
 	var amountstr = str(amount)
 	if amount < 0:
@@ -25,5 +25,5 @@ func get_tooltip():
 		adjective = "loses "
 	else:
 		amountstr = "[color=green]" + amountstr + "[/color]"
-	return CountryData.countries[affected_country].name + " " + adjective + ("[img=20]%s[/img]" % CountryData.countries[affected_country].resources[resource_type].icon.resource_path) + amountstr
+	return CountryData.countries[who].name + " " + adjective + ("[img=20]%s[/img]" % CountryData.countries[who].resources[resource_type].icon.resource_path) + amountstr
 	pass

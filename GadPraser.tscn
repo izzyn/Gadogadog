@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://kg08tjp3rvvr"]
+
+[ext_resource type="Script" uid="uid://d0tlswsphm1i6" path="res://GadParser.gd" id="1_8cwue"]
+
+[node name="GadPraser" type="Node"]
+script = ExtResource("1_8cwue")

@@ -12,7 +12,7 @@ var type : time_type
 @export
 var length : int
 
-func check():
+func check(who):
 	var calendar = Log.get_calendar(Log.current_day)
 	match type:
 		time_type.day:

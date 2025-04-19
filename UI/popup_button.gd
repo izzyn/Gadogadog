@@ -1,6 +1,6 @@
 extends Button
 
-var entries : Array[Log_Entry]
+var entries : Array[Selection_Log]
 var tooltip : String
 
 @export
@@ -17,7 +17,11 @@ func _ready() -> void:
 
 func _pressed() -> void:
 	for i in entries:
-		Log.append_log(i)
+		for country in i ._exported:
+			for log in i.logs:
+				var log_dupe : Log_Entry = log.duplicate()
+				log_dupe.affected_country = country
+				Log.append_log(log_dupe)
 	get_parent().get_parent().get_parent().get_parent().queue_free()
 	pass
 
