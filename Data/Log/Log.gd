@@ -127,6 +127,7 @@ func true_deep_copy(obj: Resource, visited : Dictionary = {}) -> Resource:
 	#if visited.has(obj):
 	#	return
 	visited[obj] = true
+	
 	for prop in obj.get_property_list():
 		var prop_name = prop["name"]
 		if _is_stored_property(prop):
@@ -172,7 +173,7 @@ func update_variables(obj: Resource, visited: Dictionary = {}):
 			
 			var value = obj.get(prop_name)
 			if (prop["usage"] & PROPERTY_USAGE_SCRIPT_VARIABLE) != 0 and value is String:
-				var countryid = update_country
+				var countryid = CountryData.player_country_id
 				var countryname = CountryData.countries[countryid].name
 				var trigger_name = ""
 				for i in trigger:
@@ -202,7 +203,7 @@ func _handle_value_recursively(value, visited: Dictionary):
 			_handle_value_recursively(value[key], visited)
 
 func dupe_with_variables(value : Resource) -> Resource:
-	var dupe =true_deep_copy(value)
+	var dupe = true_deep_copy(value.duplicate(true))
 	update_variables(dupe)
 	return dupe
 

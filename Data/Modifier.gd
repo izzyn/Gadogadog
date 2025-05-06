@@ -8,4 +8,4 @@ var title : String
 var flavour : String
 
 @export
-var affected_stats : Dictionary
+var affected_stats : Dictionary[String, float]

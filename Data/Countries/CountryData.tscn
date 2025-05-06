@@ -1,12 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://d1bne15nfycuf"]
+[gd_scene load_steps=23 format=3 uid="uid://d1bne15nfycuf"]
 
 [ext_resource type="Script" uid="uid://blwgvhrnkt1y0" path="res://Data/CountryData.gd" id="1_p7lka"]
 [ext_resource type="Texture2D" uid="uid://4qwaqrw603p6" path="res://Assets/holylogo.svg" id="2_3hfo0"]
+[ext_resource type="Script" uid="uid://d33fpeq6usib7" path="res://Data/LawData.gd" id="3_1qaua"]
 [ext_resource type="Texture2D" uid="uid://bruuaxu072gfv" path="res://Assets/money.svg" id="3_enl0f"]
 [ext_resource type="Script" uid="uid://6wi33ogtpx8w" path="res://Data/ResourceType.gd" id="4_dqgkg"]
 [ext_resource type="Texture2D" uid="uid://nitlej7dw83v" path="res://Assets/steel.png" id="5_wvna6"]
 [ext_resource type="Script" uid="uid://b5p2sykpyu2dr" path="res://Data/Countries/CountryInfo.gd" id="5_xl1gb"]
 [ext_resource type="Texture2D" uid="uid://125hf01me7lv" path="res://Assets/swirlylogo.svg" id="6_q4fct"]
+[ext_resource type="Texture2D" uid="uid://bv2n7ycup5lkk" path="res://Assets/Planet_synaptic_lathe.png" id="8_hlxjb"]
+[ext_resource type="Script" uid="uid://bfnyg5atu6hh3" path="res://Data/Modifier.gd" id="10_enesu"]
 
 [sub_resource type="Resource" id="Resource_bgnjg"]
 script = ExtResource("4_dqgkg")
@@ -29,10 +32,11 @@ logo = ExtResource("2_3hfo0")
 color = Color(0.870588, 0.721569, 0.305882, 1)
 unlocked_buildings = Array[String]([])
 available_decisions = Array[String]([])
-resources = {
+resources = Dictionary[String, ExtResource("4_dqgkg")]({
 "money": SubResource("Resource_bgnjg"),
 "steel": SubResource("Resource_op33y")
-}
+})
+laws = Dictionary[String, ExtResource("3_1qaua")]({})
 
 [sub_resource type="Resource" id="Resource_002si"]
 script = ExtResource("4_dqgkg")
@@ -53,43 +57,71 @@ logo = ExtResource("6_q4fct")
 color = Color(1, 0.352941, 0.352941, 1)
 unlocked_buildings = Array[String]([])
 available_decisions = Array[String]([])
-resources = {
+resources = Dictionary[String, ExtResource("4_dqgkg")]({
 "money": SubResource("Resource_002si"),
 "steel": SubResource("Resource_2rhqk")
-}
+})
+laws = Dictionary[String, ExtResource("3_1qaua")]({})
 
-[sub_resource type="Resource" id="Resource_o8t0k"]
+[sub_resource type="Resource" id="Resource_hlxjb"]
 script = ExtResource("4_dqgkg")
-amount = 2
-income = {}
-
-[sub_resource type="Resource" id="Resource_y7n8w"]
-script = ExtResource("4_dqgkg")
-amount = 2
-income = {}
-
-[sub_resource type="Resource" id="Resource_hv1va"]
-script = ExtResource("4_dqgkg")
+icon = ExtResource("5_wvna6")
 amount = 1
 income = {}
+metadata/_custom_type_script = "uid://6wi33ogtpx8w"
 
-[sub_resource type="Resource" id="Resource_kc22w"]
+[sub_resource type="Resource" id="Resource_enesu"]
 script = ExtResource("5_xl1gb")
-name = "world"
-color = Color(0, 0, 0, 1)
+name = "Synlathea"
+logo = ExtResource("8_hlxjb")
+color = Color(0.71, 0.1278, 0.27335, 1)
 unlocked_buildings = Array[String]([])
 available_decisions = Array[String]([])
-resources = {
-"day": SubResource("Resource_o8t0k"),
-"month": SubResource("Resource_y7n8w"),
-"year": SubResource("Resource_hv1va")
-}
+resources = Dictionary[String, ExtResource("4_dqgkg")]({
+"steel": SubResource("Resource_hlxjb")
+})
+laws = Dictionary[String, ExtResource("3_1qaua")]({})
+metadata/_custom_type_script = "uid://b5p2sykpyu2dr"
+
+[sub_resource type="Resource" id="Resource_1qaua"]
+script = ExtResource("4_dqgkg")
+icon = ExtResource("3_enl0f")
+amount = 0
+income = {}
+metadata/_custom_type_script = "uid://6wi33ogtpx8w"
+
+[sub_resource type="Resource" id="Resource_mbocb"]
+script = ExtResource("10_enesu")
+title = "Never"
+flavour = "The market, or something"
+affected_stats = Dictionary[String, float]({})
+metadata/_custom_type_script = "uid://bfnyg5atu6hh3"
+
+[sub_resource type="Resource" id="Resource_p6e3k"]
+script = ExtResource("10_enesu")
+title = "Always"
+flavour = "The state, or something."
+affected_stats = Dictionary[String, float]({})
+metadata/_custom_type_script = "uid://bfnyg5atu6hh3"
+
+[sub_resource type="Resource" id="Resource_r8lfg"]
+script = ExtResource("3_1qaua")
+law_name = "Taxation"
+selected = 1
+policies = Array[ExtResource("10_enesu")]([SubResource("Resource_mbocb"), SubResource("Resource_p6e3k")])
+metadata/_custom_type_script = "uid://d33fpeq6usib7"
 
 [node name="CountryData" type="Node"]
 script = ExtResource("1_p7lka")
-countries = {
+player_country_id = "holyland"
+countries = Dictionary[String, ExtResource("5_xl1gb")]({
 "holyland": SubResource("Resource_atrhw"),
 "swirlers": SubResource("Resource_umh4p"),
-"world": SubResource("Resource_kc22w")
-}
-player_country_id = "holyland"
+"synlathea": SubResource("Resource_enesu")
+})
+default_resources = Dictionary[String, ExtResource("4_dqgkg")]({
+"money": SubResource("Resource_1qaua")
+})
+default_laws = Dictionary[String, ExtResource("3_1qaua")]({
+"taxes": SubResource("Resource_r8lfg")
+})

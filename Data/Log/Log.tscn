@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cv4r78mnn162u"]
+[gd_scene load_steps=39 format=3 uid="uid://cv4r78mnn162u"]
 
 [ext_resource type="Script" uid="uid://bfwvp7j4x22ah" path="res://Data/Log/Log.gd" id="1_6aln7"]
 [ext_resource type="Script" uid="uid://dyl36amjj01q3" path="res://Data/Events/PopupData.gd" id="2_87bku"]
@@ -9,8 +9,8 @@
 [ext_resource type="Script" uid="uid://m3kf1qnmmvvk" path="res://Data/Conditions/ConditionResource.gd" id="6_qv0xi"]
 [ext_resource type="Script" uid="uid://dkj2tgva2v555" path="res://Data/FetchData/Constant.gd" id="7_i6r8a"]
 [ext_resource type="Script" uid="uid://dru1fq7u33bo0" path="res://Data/SelectLog.gd" id="8_0ngyv"]
+[ext_resource type="Script" uid="uid://bbl53m42eci2i" path="res://Data/Log/ChangeNameLog.gd" id="11_awwko"]
 [ext_resource type="Script" uid="uid://dflgy4tvowvkd" path="res://Data/Select.gd" id="12_jic8x"]
-[ext_resource type="Script" uid="uid://dgf122fgp0plm" path="res://Data/Conditions/ConditionCountry.gd" id="12_lh7cs"]
 [ext_resource type="Script" uid="uid://waf0aw7us24r" path="res://Data/Regions/Building.gd" id="20_hi1cq"]
 [ext_resource type="Texture2D" uid="uid://k7w4nr40dbf5" path="res://Assets/Factory.svg" id="20_mdyhn"]
 [ext_resource type="Script" uid="uid://bsxidil3u2lrh" path="res://Data/RegionData.gd" id="23_0uuye"]
@@ -19,7 +19,7 @@
 script = ExtResource("3_msoth")
 always_visible = false
 entries = Array[ExtResource("8_0ngyv")]([])
-text = "Children who want to go back to the mines says what?"
+text = "ÖPPNA KIRRUNA GRUVORNA BABY"
 auto_select_after = 10
 
 [sub_resource type="Resource" id="Resource_awwko"]
@@ -49,24 +49,10 @@ amount = 1000
 affected_country = ""
 metadata/_custom_type_script = "uid://mx7ovroos1vh"
 
-[sub_resource type="Resource" id="Resource_h4ugs"]
-script = ExtResource("7_i6r8a")
-Value = 3000
-metadata/_custom_type_script = "uid://dkj2tgva2v555"
-
-[sub_resource type="Resource" id="Resource_krdas"]
-script = ExtResource("6_qv0xi")
-type = 1
-resource_id = "money"
-resource = SubResource("Resource_h4ugs")
-display = false
-metadata/_custom_type_script = "uid://m3kf1qnmmvvk"
-
 [sub_resource type="Resource" id="Resource_ysndr"]
 script = ExtResource("12_jic8x")
 additional_variables = Dictionary[String, Variant]({})
 additional_global_scopes = Array[String](["All_Countries"])
-condition = SubResource("Resource_krdas")
 metadata/_custom_type_script = "uid://dflgy4tvowvkd"
 
 [sub_resource type="Resource" id="Resource_o7h1g"]
@@ -75,19 +61,44 @@ selection = SubResource("Resource_ysndr")
 logs = Array[ExtResource("5_jd50d")]([SubResource("Resource_eqeit")])
 metadata/_custom_type_script = "uid://dru1fq7u33bo0"
 
+[sub_resource type="Resource" id="Resource_krdas"]
+script = ExtResource("11_awwko")
+new_name = "Crybabies"
+affected_country = ""
+metadata/_custom_type_script = "uid://bbl53m42eci2i"
+
+[sub_resource type="Resource" id="Resource_ed7m4"]
+script = ExtResource("12_jic8x")
+additional_variables = Dictionary[String, Variant]({})
+additional_global_scopes = Array[String](["$Country_ID"])
+metadata/_custom_type_script = "uid://dflgy4tvowvkd"
+
+[sub_resource type="Resource" id="Resource_khc5w"]
+script = ExtResource("8_0ngyv")
+selection = SubResource("Resource_ed7m4")
+logs = Array[ExtResource("5_jd50d")]([SubResource("Resource_krdas")])
+metadata/_custom_type_script = "uid://dru1fq7u33bo0"
+
 [sub_resource type="Resource" id="Resource_6xrmt"]
 script = ExtResource("3_msoth")
 always_visible = false
 condition = SubResource("Resource_0ngyv")
-entries = Array[ExtResource("8_0ngyv")]([SubResource("Resource_o7h1g")])
-text = "Be kind to the children :("
+entries = Array[ExtResource("8_0ngyv")]([SubResource("Resource_o7h1g"), SubResource("Resource_khc5w")])
+text = "Skapa A-kassa :("
 auto_select_after = -1
 
+[sub_resource type="Resource" id="Resource_h4ugs"]
+script = ExtResource("7_i6r8a")
+Value = 1000
+metadata/_custom_type_script = "uid://dkj2tgva2v555"
+
 [sub_resource type="Resource" id="Resource_uu7su"]
-script = ExtResource("12_lh7cs")
-country_id = "holyland"
+script = ExtResource("6_qv0xi")
+type = 3
+resource_id = "money"
+resource = SubResource("Resource_h4ugs")
 display = false
-metadata/_custom_type_script = "uid://dgf122fgp0plm"
+metadata/_custom_type_script = "uid://m3kf1qnmmvvk"
 
 [sub_resource type="Resource" id="Resource_lh7cs"]
 script = ExtResource("12_jic8x")
@@ -106,9 +117,9 @@ metadata/_custom_type_script = "uid://dflgy4tvowvkd"
 script = ExtResource("2_87bku")
 Region_Event = false
 ID = "hello"
-title = "Crybabies in $Country_Name"
+title = "Unemployment in $Country_Name"
 image = ExtResource("3_h5d1i")
-flavour_text = "The children don't want to work."
+flavour_text = "People don't have any jobs to work"
 always_trigger_events = Array[ExtResource("8_0ngyv")]([])
 global = false
 appears_once = true
@@ -158,7 +169,7 @@ buildings = {}
 [sub_resource type="Resource" id="Resource_fkpjn"]
 script = ExtResource("23_0uuye")
 neighbours = []
-owning_country = "holyland"
+owning_country = "synlathea"
 max_infra = 0
 max_buildings = 0
 buildings = {}

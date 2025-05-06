@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _pressed() -> void:
 	for i in entries:
-		for country in i ._exported:
+		for country in i._exported:
 			for log in i.logs:
 				var log_dupe : Log_Entry = log.duplicate()
 				log_dupe.affected_country = country

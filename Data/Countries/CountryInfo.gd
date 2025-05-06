@@ -17,6 +17,7 @@ var unlocked_buildings : Array[String]
 var available_decisions : Array[String]
 ##resources, is a dictionary of type Key: String -> Value: Resource_Type
 @export
-var resources : Dictionary = {
-	"money" : load("res://Resources/money.tres").duplicate()
-}
+var resources : Dictionary[String,Resource_Type]
+
+@export
+var laws : Dictionary[String, Law_Data]

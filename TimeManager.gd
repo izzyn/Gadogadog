@@ -22,6 +22,7 @@ func update_time() -> void:
 		timer.wait_time = 1.0 / speed
 		timer.start()
 	pass
+
 func update_calendar():
 	var day = CountryData.countries["world"].resources["day"].amount
 	var month = CountryData.countries["world"].resources["month"].amount
